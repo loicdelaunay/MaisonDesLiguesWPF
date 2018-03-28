@@ -24,7 +24,15 @@ namespace MaisonDesLiguesWpf
             InitializeComponent();
         }
 
+        /**
+         * controle du textbox tel
+        **/
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void MaskedTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
