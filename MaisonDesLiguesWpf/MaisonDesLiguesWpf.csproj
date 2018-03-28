@@ -69,8 +69,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="WinLogin.xaml.cs">
-      <DependentUpon>WinLogin.xaml</DependentUpon>
+    <Compile Include="WpfLogin.xaml.cs">
+      <DependentUpon>WpfLogin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WpfPrincipale.xaml.cs">
+      <DependentUpon>WpfPrincipale.xaml</DependentUpon>
     </Compile>
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
@@ -106,7 +109,11 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Page Include="WinLogin.xaml">
+    <Page Include="WpfLogin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="WpfPrincipale.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

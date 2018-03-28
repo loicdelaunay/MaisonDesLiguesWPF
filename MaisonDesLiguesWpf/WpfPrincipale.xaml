@@ -61,8 +61,11 @@
             <Button Content="Quitter" HorizontalAlignment="Left" Margin="446,239,0,0" VerticalAlignment="Top" Width="122" Height="31"/>
             <Rectangle Fill="#FFFDFDFD" HorizontalAlignment="Left" Height="212" Margin="610,47,0,0" Stroke="Black" VerticalAlignment="Top" Width="553" Grid.ColumnSpan="2"/>
             <Label Content="Disponibilités Bénévole" HorizontalAlignment="Left" Margin="610,26,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="136"/>
-            <Label Content="Nom :" HorizontalAlignment="Left" Margin="635,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="42" Height="23"/>
-            <TextBox HorizontalAlignment="Left" Height="23" Margin="770,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Grid.ColumnSpan="2"/>
+            <Label Content="Date de naissance : " HorizontalAlignment="Left" Margin="635,66,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="118" Height="23"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="770,66,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" Grid.ColumnSpan="2"/>
+            <Label Content="Numéro de licence : " HorizontalAlignment="Left" Margin="635,110,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="118" Height="24"/>
+            <TextBox HorizontalAlignment="Left" Height="23" Margin="770,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="324" Grid.ColumnSpan="2"/>
+            <Button Content="Enregistrer" Grid.Column="1" HorizontalAlignment="Left" Margin="153,230,0,0" VerticalAlignment="Top" Width="125"/>
 
         </Grid>
         <TabControl HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="1192" Margin="0,-3,0,0">
