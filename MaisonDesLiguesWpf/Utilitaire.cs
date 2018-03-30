@@ -7,6 +7,7 @@ using System.Data;
 using System.Windows.Controls;
 using System.Windows.Controls.Primitives;
 using Xceed.Utils;
+using BaseDeDonnees;
 using Xceed.Wpf;
 namespace MaisonDesLiguesWpf
 {
@@ -111,9 +112,9 @@ namespace MaisonDesLiguesWpf
         public static void RemplirComboBox(Bdd UneConnexion, ComboBox UneCombo, String UneSource)
         {
 
-            UneCombo.DataSource = UneConnexion.ObtenirDonnesOracle(UneSource);
-            UneCombo.DisplayMember = "libelle";
-            UneCombo.ValueMember = "id";
+            UneCombo.DataContext = UneConnexion.ObtenirDonnesOracle(UneSource);
+            UneCombo.DisplayMemberPath = "libelle";
+            UneCombo.SelectedValuePath = "id";
         }
         /// <summary>
         /// Cette fonction va compter le nombre de controles types CheckBox qui sont cochées contenus dans la collection controls
