@@ -37,5 +37,47 @@ namespace MaisonDesLiguesWpf
                 Application.Current.Shutdown();
             }
         }
+
+        /// <summary>
+        /// Gestion des radio button du type de participant 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RadTypeParticipant_Changed(object sender, RoutedEventArgs e)
+        {
+            switch (((RadioButton)sender).Name)
+            {
+                case "RadBenevole":
+                    this.GererInscriptionBenevole();
+                    break;
+                case "RadLicencie":
+                    this.GererInscriptionLicencie();
+                    break;
+                case "RadIntervenant":
+                    this.GererInscriptionIntervenant();
+                    break;
+                default:
+                    throw new Exception("Erreur interne dans l'application");
+
+            }
+        }
+
+        /// <summary>
+        /// Gestion 
+        /// </summary>
+        public void GererInscriptionBenevole()
+        {
+            ViewBenevole.Visibility = Visibility.Visible;
+        }
+
+        public void GererInscriptionLicencie()
+        {
+            ViewBenevole.Visibility = Visibility.Hidden;
+        }
+
+        public void GererInscriptionIntervenant()
+        {
+            ViewBenevole.Visibility = Visibility.Hidden;
+        }
     }
 }
