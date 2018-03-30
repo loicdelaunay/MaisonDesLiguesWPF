@@ -29,9 +29,9 @@
                 <RowDefinition Height="155*"/>
             </Grid.RowDefinitions>
             <Rectangle Fill="#FFFDFDFD" HorizontalAlignment="Left" Height="67" Margin="28,47,0,0" Stroke="Black" VerticalAlignment="Top" Width="399"/>
-            <RadioButton Content="Intervenant" HorizontalAlignment="Left" Margin="49,74,0,0" VerticalAlignment="Top"/>
-            <RadioButton Content="Licencié" HorizontalAlignment="Left" Margin="171,74,0,0" VerticalAlignment="Top"/>
-            <RadioButton Content="Bénévole" HorizontalAlignment="Left" Margin="282,74,0,0" VerticalAlignment="Top"/>
+            <RadioButton Name="RadIntervenant" Content="Intervenant" HorizontalAlignment="Left" Margin="49,74,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
+            <RadioButton Name="RadLicencie" Content="Licencié" HorizontalAlignment="Left" Margin="171,74,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
+            <RadioButton Name="RadBenevole" Content="Bénévole" HorizontalAlignment="Left" Margin="282,74,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
             <Label Content="Tupe Participant" HorizontalAlignment="Left" Margin="28,26,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="100"/>
             <Rectangle Fill="White" HorizontalAlignment="Left" Height="231" Margin="28,141,0,0" Stroke="Black" VerticalAlignment="Top" Width="399"/>
             <Label Content="Identité" HorizontalAlignment="Left" Margin="28,119,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="100"/>
@@ -48,13 +48,13 @@
             <Label Content="Tél : " HorizontalAlignment="Left" Margin="37,322,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="59" Height="23"/>
             <Label Content="Mail : " HorizontalAlignment="Left" Margin="177,322,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="59" Height="23"/>
             <TextBox HorizontalAlignment="Left" Height="23" Margin="220,322,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
-            <Rectangle Fill="White" HorizontalAlignment="Left" Height="62" Margin="28,420,0,0" Stroke="Black" VerticalAlignment="Top" Width="399"/>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="125" Margin="28,420,0,0" Stroke="Black" VerticalAlignment="Top" Width="697" Grid.RowSpan="2"/>
             <Label Content="Complément Inscription Intervenant " HorizontalAlignment="Left" Margin="28,397,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="230"/>
             <Label Content="Atelier : " HorizontalAlignment="Left" Margin="37,436,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="59" Height="23"/>
-            <Rectangle Fill="White" HorizontalAlignment="Left" Height="240" Margin="28,8,0,0" Stroke="Black" VerticalAlignment="Top" Width="399" Grid.Row="1"/>
-            <Label Content="Nuités" HorizontalAlignment="Left" Margin="28,507,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="230" Grid.RowSpan="2"/>
-            <RadioButton Content="Oui" HorizontalAlignment="Left" Margin="43,22,0,0" Grid.Row="1" VerticalAlignment="Top"/>
-            <RadioButton Content="Non" HorizontalAlignment="Left" Margin="156,22,0,0" Grid.Row="1" VerticalAlignment="Top" IsChecked="True"/>
+            <Rectangle Fill="White" HorizontalAlignment="Left" Height="190" Margin="28,58,0,0" Stroke="Black" VerticalAlignment="Top" Width="399" Grid.Row="1"/>
+            <Label Content="Nuités" HorizontalAlignment="Left" Margin="28,37,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="230" Grid.Row="1"/>
+            <RadioButton Content="Oui" HorizontalAlignment="Left" Margin="41,68,0,0" Grid.Row="1" VerticalAlignment="Top"/>
+            <RadioButton Content="Non" HorizontalAlignment="Left" Margin="154,68,0,0" Grid.Row="1" VerticalAlignment="Top" IsChecked="True"/>
             <Image HorizontalAlignment="Left" Height="210" Margin="446,47,0,0" VerticalAlignment="Top" Width="140" Source="Ressources/affiche.jpg" Stretch="Fill" Cursor="None"/>
             <Button Content="Quitter" HorizontalAlignment="Left" Margin="446,262,0,0" VerticalAlignment="Top" Width="140" Height="31" Click="Btn_Exit"/>
             <Rectangle Fill="#FFFDFDFD" HorizontalAlignment="Left" Height="212" Margin="610,47,0,0" Stroke="Black" VerticalAlignment="Top" Width="553" Grid.ColumnSpan="2"/>

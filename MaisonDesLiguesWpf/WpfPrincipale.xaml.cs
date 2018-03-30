@@ -37,5 +37,24 @@ namespace MaisonDesLiguesWpf
                 Application.Current.Shutdown();
             }
         }
+
+        private void RadTypeParticipant_Changed(object sender, RoutedEventArgs e)
+        {
+            switch (((RadioButton)sender).Name)
+            {
+                case "RadBenevole":
+                    //this.GererInscriptionBenevole();
+                    break;
+                case "RadLicencie":
+                    //this.GererInscriptionBenevole();
+                    break;
+                case "RadIntervenant":
+                    //this.GererInscriptionIntervenant();
+                    break;
+                default:
+                    throw new Exception("Erreur interne dans l'application");
+
+            }
+        }
     }
 }
