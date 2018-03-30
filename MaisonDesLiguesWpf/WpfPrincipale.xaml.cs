@@ -22,6 +22,10 @@ namespace MaisonDesLiguesWpf
         public WinPrincipale()
         {
             InitializeComponent();
+            ViewComplementInscription.Visibility = Visibility.Hidden;
+            ViewNuites.Visibility = Visibility.Hidden;
+            ViewBenevole.Visibility = Visibility.Hidden;
+
         }
 
         /// <summary>
