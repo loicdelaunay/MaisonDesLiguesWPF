@@ -15,11 +15,11 @@ using System.Windows.Shapes;
 namespace MaisonDesLiguesWpf
 {
     /// <summary>
-    /// Logique d'interaction pour WinLogin.xaml
+    /// Logique d'interaction pour WinPrincipale.xaml
     /// </summary>
-    public partial class WinLogin : Window
+    public partial class WinPrincipale : Window
     {
-        public WinLogin()
+        public WinPrincipale()
         {
             InitializeComponent();
         }
