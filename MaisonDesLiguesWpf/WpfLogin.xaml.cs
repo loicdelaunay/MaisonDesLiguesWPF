@@ -38,10 +38,10 @@ namespace MaisonDesLiguesWpf
                 else
                 {
                     UneConnexion = new Bdd(TextboxLoginLogin.Text, TextboxLoginMdp.Text, false);
-                    this.Hide();
-                    WinPrincipale Principale = new WinPrincipale();
-                    Principale.Show();
                 }
+                this.Hide();
+                WinPrincipale Principale = new WinPrincipale();
+                Principale.Show();
             }
             catch (Exception ex)
             {
