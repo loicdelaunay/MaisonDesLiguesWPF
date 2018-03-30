@@ -4,9 +4,9 @@ using System.Linq;
 using System.Data;
 using System.Collections.ObjectModel;
 using System.Text.RegularExpressions;  // bibliothèque pour les expressions régulières
-using Oracle.DataAccess.Client;
 using System.Configuration;
 using System.Windows;
+using Oracle.ManagedDataAccess.Client;
 
 namespace BaseDeDonnees
 {
