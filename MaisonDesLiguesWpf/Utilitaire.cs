@@ -31,8 +31,9 @@ namespace MaisonDesLiguesWpf
             UnControleAPlacer.Name = UnPrefixe + UneLigne[0];
             UnControleAPlacer.Width = 320;
             UnControleAPlacer.Content = UneLigne[1].ToString();
-            UnControleAPlacer.Left = 13;
-            UnControleAPlacer.Top = 5 + (10 * i);
+            Thickness margin = UnControleAPlacer.Margin;
+            margin.Top = 5 + (10 * i);
+            margin.Left = 13;
             UnControleAPlacer.Visibility = Visibility.Visible;
             System.Type UnType = UnePage.GetType();
             UnContainer.Children.Add(UnControleAPlacer);
@@ -49,8 +50,10 @@ namespace MaisonDesLiguesWpf
         {
             CheckBox UneCheckBox = new CheckBox();
             UneCheckBox.Name = unNom;
-            UneCheckBox.Top = UnTop;
-            UneCheckBox.Left = UnLeft;
+            Thickness margin = UneCheckBox.Margin;
+            margin.Top = UnTop;
+            margin.Left = UnLeft;
+            UneCheckBox.Margin = margin;
             UneCheckBox.Visibility = Visibility.Visible;
             UnContainer.Children.Add(UneCheckBox);
         }
