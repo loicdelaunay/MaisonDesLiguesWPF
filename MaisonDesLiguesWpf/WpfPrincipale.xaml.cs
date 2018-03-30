@@ -1,4 +1,5 @@
 ﻿using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -33,13 +34,20 @@ namespace MaisonDesLiguesWpf
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void Btn_Exit(object sender, RoutedEventArgs e)
+        private async void Btn_ExitAsync(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show("Voulez-vous quitter l'application ?", "APP_NAME", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            if (result == MessageBoxResult.Yes)
+            //MessageBoxResult result = MessageBox.Show("Voulez-vous quitter l'application ?", "APP_NAME", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            //if (result == MessageBoxResult.Yes)
+            //{
+            //    Application.Current.Shutdown();
+            //}
+            MessageDialogResult result = await this.ShowMessageAsync("MAISON DES LIGUES", "Voulez-vous quitter l'application ?",MessageDialogStyle.AffirmativeAndNegative);
+            if (result == MessageDialogResult.Affirmative)
             {
                 Application.Current.Shutdown();
             }
+
+            return;
         }
 
         /// <summary>
