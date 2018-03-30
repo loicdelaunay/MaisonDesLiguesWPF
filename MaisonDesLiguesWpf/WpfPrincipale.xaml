@@ -39,23 +39,29 @@
         </Viewbox>
         <Viewbox x:Name="ViewComplementInscription" Margin="28,382,467,239" Stretch="Fill">
             <Grid Height="148" Width="697">
-                <Rectangle x:Name="RectComplementInscription" Fill="White" HorizontalAlignment="Left" Height="125" Margin="0,23,0,0" Stroke="Black" VerticalAlignment="Top" Width="697"/>
+                <Rectangle x:Name="RectComplementInscription" Fill="White" HorizontalAlignment="Left" Stroke="Black" Width="510" Margin="0,23,0,-182"/>
                 <Label x:Name="LblComplemententInscription" Content="Complément Inscription Intervenant " HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="230"/>
                 <Label x:Name="LblAtelier" Content="Atelier : " HorizontalAlignment="Left" Margin="9,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="59" Height="23"/>
                 <ComboBox x:Name="ComboboxComplementInscription" HorizontalAlignment="Left" Margin="68,40,0,0" VerticalAlignment="Top" Width="289" RenderTransformOrigin="0.417,0.545"/>
-            </Grid>
-        </Viewbox>
-        <Viewbox x:Name="ViewNuites" Margin="28,548,765,10" Stretch="Fill">
-            <Grid Height="211" Width="399">
-                <Rectangle x:Name="RectNuites" Fill="White" HorizontalAlignment="Left" Height="190" Margin="0,21,0,0" Stroke="Black" VerticalAlignment="Top" Width="399"/>
-                <Label x:Name="LblNuites" Content="Nuités" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="230"/>
-                <RadioButton x:Name="RadNuiteOui" Content="Oui" HorizontalAlignment="Left" Margin="13,31,0,0" VerticalAlignment="Top"/>
-                <RadioButton x:Name="RadNuiteNon" Content="Non" HorizontalAlignment="Left" Margin="126,31,0,0" VerticalAlignment="Top" IsChecked="True"/>
+                <Button x:Name="BtnComplInscIterven" Content="Enregistrer" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="346,280,0,-162" Width="126" Height="30" Click="Button_Click"/>
+                <Viewbox x:Name="ViewNuites" Margin="9,67,289,-127" Stretch="Fill">
+                    <Grid Height="211" Width="399">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0*"/>
+                            <ColumnDefinition Width="13*"/>
+                            <ColumnDefinition Width="6*"/>
+                        </Grid.ColumnDefinitions>
+                        <Rectangle x:Name="RectNuites" Fill="White" HorizontalAlignment="Left" Height="190" Margin="0,21,0,0" Stroke="Black" VerticalAlignment="Top" Width="399" Grid.ColumnSpan="3"/>
+                        <Label x:Name="LblNuites" Content="Nuités" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="230" Grid.ColumnSpan="2"/>
+                        <RadioButton x:Name="RadNuiteOui" Content="Oui" HorizontalAlignment="Left" Margin="13,31,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+                        <RadioButton x:Name="RadNuiteNon" Content="Non" HorizontalAlignment="Left" Margin="126,31,0,0" VerticalAlignment="Top" IsChecked="True" Grid.ColumnSpan="2"/>
+                    </Grid>
+                </Viewbox>
             </Grid>
         </Viewbox>
         <Viewbox x:Name="ViewBenevole" Margin="610,26,29,510" Stretch="Fill">
-            <Grid Height="233" Width="553">
-                <Rectangle x:Name="GrpBenevole" Fill="#FFFDFDFD" HorizontalAlignment="Left" Height="212" Margin="0,21,0,0" Stroke="Black" VerticalAlignment="Top" Width="553"/>
+            <Grid Height="236" Width="703">
+                <Rectangle x:Name="GrpBenevole" Fill="#FFFDFDFD" Height="173" Margin="0,21,192,0" Stroke="Black" VerticalAlignment="Top"/>
                 <Label Content="Disponibilités Bénévole" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="136"/>
                 <Label Content="Date de naissance : " HorizontalAlignment="Left" Margin="25,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="118" Height="23"/>
                 <Label Content="Numéro de licence : " HorizontalAlignment="Left" Margin="25,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="118" Height="24"/>

@@ -49,25 +49,5 @@ namespace MaisonDesLiguesWpf
                 MessageBox.Show(ex.Message);
             }
         }
-
-        private void Login_LostFocus(object sender, RoutedEventArgs e)
-        {
-            TextboxLoginLogin.Text = "";
-        }
-
-        private void Login_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextboxLoginLogin.Text = "Veuillez entrer votre Login !";
-        }
-
-        private void Password_GotFocus(object sender, RoutedEventArgs e)
-        {
-            TextboxLoginMdp.Text = "";
-        }
-
-        private void Password_LostFocus(object sender, RoutedEventArgs e)
-        {
-            TextboxLoginMdp.Text = "Veuillez entrer votre mot de passe";
-        }
     }
 }

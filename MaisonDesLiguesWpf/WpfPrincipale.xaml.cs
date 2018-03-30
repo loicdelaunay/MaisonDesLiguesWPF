@@ -72,6 +72,8 @@ namespace MaisonDesLiguesWpf
         public void GererInscriptionBenevole()
         {
             ViewBenevole.Visibility = Visibility.Visible;
+            ViewBenevole.Margin = new Thickness(28,382,467,239);
+            ViewComplementInscription.Visibility = Visibility.Hidden;
         }
 
         public void GererInscriptionLicencie()
@@ -82,6 +84,13 @@ namespace MaisonDesLiguesWpf
         public void GererInscriptionIntervenant()
         {
             ViewBenevole.Visibility = Visibility.Hidden;
+            ViewComplementInscription.Visibility = Visibility.Visible;
+            ViewNuites.Visibility = Visibility.Visible;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }
