@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaisonDesLiguesWpf"
-        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" x:Class="MaisonDesLiguesWpf.WinLogin"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="MaisonDesLiguesWpf.WinLogin"
         mc:Ignorable="d"
         Title="Inscription" Height="800" Width="1200">
     <Grid>
@@ -55,7 +55,7 @@
             <Label Content="Nuités" HorizontalAlignment="Left" Margin="28,507,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="230" Grid.RowSpan="2"/>
             <RadioButton Content="Oui" HorizontalAlignment="Left" Margin="43,22,0,0" Grid.Row="1" VerticalAlignment="Top"/>
             <RadioButton Content="Non" HorizontalAlignment="Left" Margin="156,22,0,0" Grid.Row="1" VerticalAlignment="Top" IsChecked="True"/>
-            <Image HorizontalAlignment="Left" Height="210" Margin="446,47,0,0" VerticalAlignment="Top" Width="140" Source="Ressources/affiche.jpg"/>
+            <Image HorizontalAlignment="Left" Height="210" Margin="446,47,0,0" VerticalAlignment="Top" Width="140" Source="Ressources/affiche.jpg" Stretch="Fill" Cursor="None"/>
             <Button Content="Quitter" HorizontalAlignment="Left" Margin="446,262,0,0" VerticalAlignment="Top" Width="140" Height="31" Click="Btn_Exit"/>
             <Rectangle Fill="#FFFDFDFD" HorizontalAlignment="Left" Height="212" Margin="610,47,0,0" Stroke="Black" VerticalAlignment="Top" Width="553" Grid.ColumnSpan="2"/>
             <Label Content="Disponibilités Bénévole" HorizontalAlignment="Left" Margin="610,26,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="136"/>
