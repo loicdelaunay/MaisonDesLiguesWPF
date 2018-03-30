@@ -1,36 +1,26 @@
-﻿<Window
+﻿<Controls:MetroWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaisonDesLiguesWpf"
+    xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="MaisonDesLiguesWpf.WinPrincipale"
         mc:Ignorable="d"
-        Title="Inscription" Height="800" Width="1200">
-    <Grid>
-        <TabControl x:Name="Tabs" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="1192" Margin="0,-3,0,0">
-            <TabItem Header="Inscription">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-            <TabItem Header="Soon">
-                <Grid Background="#FFE5E5E5"/>
-            </TabItem>
-        </TabControl>
-        <Viewbox x:Name="ViewParticipant" Margin="28,26,765,655" Stretch="Fill">
-            <Grid Height="88" Width="399">
-                <Rectangle x:Name="RectParticipant1" Fill="#FFFDFDFD" HorizontalAlignment="Left" Height="67" Margin="0,21,0,0" Stroke="Black" VerticalAlignment="Top" Width="399"/>
-                <RadioButton x:Name="RadIntervenant" Content="Intervenant" HorizontalAlignment="Left" Margin="21,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
-                <RadioButton x:Name="RadLicencie" Content="Licencié" HorizontalAlignment="Left" Margin="143,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
-                <RadioButton x:Name="RadBenevole" Content="Bénévole" HorizontalAlignment="Left" Margin="254,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
-                <Label Content="Tupe Participant" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="100" Margin="1,0,0,0"/>
-            </Grid>
-        </Viewbox>
+        Title="Inscription" 
+    Height="800" 
+    Width="1200"
+            BorderThickness="0" 
+        GlowBrush="Black"
+        Icon="Ressources/LogoTxt.png"
+        ResizeMode="CanResizeWithGrip">
+    <Grid Margin="0,-15,0,18">
         <Viewbox x:Name="ViewIdentite" Margin="28,120,765,405" Stretch="Fill">
             <Grid Height="246" Width="401">
                 <Rectangle x:Name="RectIdentite" Fill="White" HorizontalAlignment="Left" Height="218" Margin="0,26,-25,-19" Stroke="Black" VerticalAlignment="Top" Width="399"/>
                 <Label x:Name="LblNom" Content="Nom :" HorizontalAlignment="Left" Margin="9,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="42" Height="23"/>
                 <Label x:Name="LblIdentite" Content="Identité" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="100" Margin="0,4,0,0"/>
-                <TextBox x:Name="TxtboxNom" HorizontalAlignment="Left" Height="23" Margin="56,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+                <TextBox Controls:TextBoxHelper.Watermark="Votre nom" x:Name="TxtboxNom" HorizontalAlignment="Left" Height="23" Margin="56,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <Label x:Name="LblPrenom" Content="Prénom :" HorizontalAlignment="Left" Margin="192,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="57" Height="23"/>
                 <TextBox x:Name="TextboxPrenom" HorizontalAlignment="Left" Height="23" Margin="254,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
                 <Label Content="Prénom :" HorizontalAlignment="Left" Margin="192,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="57" Height="23"/>
@@ -82,6 +72,15 @@
 
             </Grid>
         </Viewbox>
+        <Viewbox x:Name="ViewParticipant" Margin="28,26,765,655" Stretch="Fill">
+            <Grid Height="88" Width="399">
+                <Rectangle x:Name="RectParticipant1" Fill="#FFFDFDFD" HorizontalAlignment="Left" Height="67" Margin="0,21,0,0" Stroke="Black" VerticalAlignment="Top" Width="399"/>
+                <RadioButton x:Name="RadIntervenant" Content="Intervenant" HorizontalAlignment="Left" Margin="21,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
+                <RadioButton x:Name="RadLicencie" Content="Licencié" HorizontalAlignment="Left" Margin="143,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
+                <RadioButton x:Name="RadBenevole" Content="Bénévole" HorizontalAlignment="Left" Margin="254,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
+                <Label Content="Tupe Participant" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="100" Margin="1,0,0,0"/>
+            </Grid>
+        </Viewbox>
 
     </Grid>
-</Window>
+</Controls:MetroWindow>
