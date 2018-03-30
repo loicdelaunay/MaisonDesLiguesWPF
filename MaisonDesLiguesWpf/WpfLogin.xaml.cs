@@ -18,9 +18,9 @@ namespace MaisonDesLiguesWpf
     /// <summary>
     /// Logique d'interaction pour WpfPrincipale.xaml
     /// </summary>
-    public partial class WpfPrincipale : Window
+    public partial class WpfLogin : Window
     {
-        public WpfPrincipale()
+        public WpfLogin()
         {
             InitializeComponent();
         }
@@ -31,17 +31,17 @@ namespace MaisonDesLiguesWpf
         {
             try
             {
-                if (RadMaison.IsChecked == true)
+                if (RadLoginMaison.IsChecked == true)
                 {
-                    UneConnexion = new Bdd(Login.Text, Password.Text, true);
+                    UneConnexion = new Bdd(TextboxLoginLogin.Text, TextboxLoginMdp.Text, true);
                 }
                 else
                 {
-                    UneConnexion = new Bdd(Login.Text, Password.Text, false);
+                    UneConnexion = new Bdd(TextboxLoginLogin.Text, TextboxLoginMdp.Text, false);
+                    this.Hide();
+                    WinPrincipale Principale = new WinPrincipale();
+                    Principale.Show();
                 }
-                this.Hide();
-                WinPrincipale Principale = new WinPrincipale();
-                Principale.Show();
             }
             catch (Exception ex)
             {
@@ -49,49 +49,24 @@ namespace MaisonDesLiguesWpf
             }
         }
 
-        /// <summary>
-        /// gestion de l'activation/désactivation du bouton ok
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void ControleValide(object sender, EventArgs e)
-        {
-            if (RadLycee.IsChecked == false && RadMaison.IsChecked == false)
-            {
-                BtnLogin.IsEnabled = false;
-            }
-            else
-            {
-                if (Login.Text.Length == 0 || Password.Text.Length == 0)
-                {
-                    BtnLogin.IsEnabled = false;
-                }
-                else
-                {
-                    BtnLogin.IsEnabled = true;
-                }
-            }
-
-        }
-
         private void Login_LostFocus(object sender, RoutedEventArgs e)
         {
-            Login.Text = "";
+            TextboxLoginLogin.Text = "";
         }
 
         private void Login_GotFocus(object sender, RoutedEventArgs e)
         {
-            Login.Text = "Veuillez entrer votre Login !";
+            TextboxLoginLogin.Text = "Veuillez entrer votre Login !";
         }
 
         private void Password_GotFocus(object sender, RoutedEventArgs e)
         {
-            Password.Text = "";
+            TextboxLoginMdp.Text = "";
         }
 
         private void Password_LostFocus(object sender, RoutedEventArgs e)
         {
-            Password.Text = "Veuillez entrer votre mot de passe";
+            TextboxLoginMdp.Text = "Veuillez entrer votre mot de passe";
         }
     }
 }
