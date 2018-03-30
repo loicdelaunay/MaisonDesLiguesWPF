@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaisonDesLiguesWpf"
-        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="MaisonDesLiguesWpf.WinLogin"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="MaisonDesLiguesWpf.WinPrincipale"
         mc:Ignorable="d"
         Title="Inscription" Height="800" Width="1200">
     <Grid>
