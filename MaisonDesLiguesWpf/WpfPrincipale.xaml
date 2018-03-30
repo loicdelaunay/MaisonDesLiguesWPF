@@ -1,14 +1,21 @@
-﻿<Window
+﻿<Controls:MetroWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaisonDesLiguesWpf"
+    xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="MaisonDesLiguesWpf.WinPrincipale"
         mc:Ignorable="d"
-        Title="Inscription" Height="800" Width="1200">
+        Title="Inscription" 
+    Height="800" 
+    Width="1200"
+            BorderThickness="0" 
+        GlowBrush="Black"
+        Icon="Ressources/LogoTxt.png"
+        ResizeMode="CanResizeWithGrip">
     <Grid>
-        <TabControl x:Name="Tabs" HorizontalAlignment="Left" Height="24" VerticalAlignment="Top" Width="1192" Margin="0,-3,0,0">
+        <TabControl x:Name="Tabs" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="1192" Margin="0,-3,0,0">
             <TabItem Header="Inscription">
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
@@ -84,4 +91,4 @@
         </Viewbox>
 
     </Grid>
-</Window>
+</Controls:MetroWindow>
