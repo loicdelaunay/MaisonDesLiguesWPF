@@ -38,16 +38,16 @@ namespace BaseDeDonnees
 
                 if (lieux)
                 {
-                    CnOracle = new OracleConnection(String.Format(ConfigurationSettings.AppSettings["SERVEROUT"],
-                            ConfigurationSettings.AppSettings["PORTOUT"],
+                    CnOracle = new OracleConnection(this.GetConnString(ConfigurationSettings.AppSettings["SERVERIN"],
+                            ConfigurationSettings.AppSettings["PORTIN"],
                             ConfigurationSettings.AppSettings["SID"],
                             UnLogin,
                             UnPwd));
                 }
                 else
                 {
-                    CnOracle = new OracleConnection(String.Format(ConfigurationSettings.AppSettings["SERVERIN"],
-                            ConfigurationSettings.AppSettings["PORTIN"],
+                    CnOracle = new OracleConnection(this.GetConnString(ConfigurationSettings.AppSettings["SERVEROUT"],
+                            ConfigurationSettings.AppSettings["PORTOUT"],
                             ConfigurationSettings.AppSettings["SID"],
                             UnLogin,
                             UnPwd));
@@ -338,6 +338,11 @@ namespace BaseDeDonnees
             }
             return LesDatesARetourner;
 
+        }
+
+        public string GetConnString(string host, string port, string sid, string user, string pass)
+        {
+            return "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=" + host + ")(PORT=" + port + ")))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=" + sid + ")));User Id = " + user + "; Password = " + pass + ";";
         }
 
     }

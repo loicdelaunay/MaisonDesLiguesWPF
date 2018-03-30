@@ -31,7 +31,7 @@ namespace MaisonDesLiguesWpf
         {
             try
             {
-                if (RadLoginMaison.IsChecked == true)
+                if (RadLoginMaison.IsChecked == false)
                 {
                     UneConnexion = new Bdd(TextboxLoginLogin.Text, TextboxLoginMdp.Text, true);
                 }
