@@ -28,6 +28,8 @@ namespace MaisonDesLiguesWpf
             ViewComplementInscription.Visibility = Visibility.Hidden;
             ViewNuites.Visibility = Visibility.Hidden;
             ViewBenevole.Visibility = Visibility.Hidden;
+            ViewComplementLicencie.Visibility = Visibility.Hidden;
+
         }
         internal BaseDeDonnees.Bdd UneConnexion;
 
@@ -99,13 +101,18 @@ namespace MaisonDesLiguesWpf
         public void GererInscriptionBenevole()
         {
             ViewBenevole.Visibility = Visibility.Visible;
-            ViewBenevole.Margin = new Thickness(28,382,467,239);
+            ViewBenevole.Margin = new Thickness(38, 432, 668, 189);
             ViewComplementInscription.Visibility = Visibility.Hidden;
+            ViewComplementLicencie.Visibility = Visibility.Hidden;
+
         }
 
         public void GererInscriptionLicencie()
         {
-            //ViewBenevole.Visibility = Visibility.Hidden;
+            ViewComplementLicencie.Visibility = Visibility.Visible;
+            ViewComplementLicencie.Margin = new Thickness(38, 432, 668, 189);
+            ViewComplementInscription.Visibility = Visibility.Hidden;
+            ViewBenevole.Visibility = Visibility.Hidden;
         }
 
 
@@ -113,14 +120,13 @@ namespace MaisonDesLiguesWpf
         {
             ViewComplementInscription.Visibility = Visibility.Visible;
             ViewBenevole.Visibility = Visibility.Hidden;
+            ViewComplementLicencie.Visibility = Visibility.Hidden;
             ViewNuites.Visibility = Visibility.Visible;
             //ViewLicencie.Visibility = Visibility.Hidden;
-            PanFonctionIntervenant.Visibility = Visibility.Visible;
-            Thickness margin = new Thickness();
-            margin.Top = 264;
-            margin.Left = 23;
-            GrpIntervenant.Margin = margin;
-            Utilitaire.CreerDesControles(this, UneConnexion, "VSTATUT01", "Rad_", PanFonctionIntervenant, "RadioButton", this.rdbStatutIntervenant_StateChanged);
+            // PanFonctionIntervenant.Visibility = Visibility.Visible;
+            ViewComplementInscription.Margin = new Thickness(38, 432, 668, 189);
+            //GrpIntervenant.Margin = margin;
+            //Utilitaire.CreerDesControles(this, UneConnexion, "VSTATUT01", "Rad_", PanFonctionIntervenant, "RadioButton", this.rdbStatutIntervenant_StateChanged);
             Utilitaire.RemplirComboBox(UneConnexion, ComboboxComplementInscription, "VATELIER01");
 
             ComboboxComplementInscription.DataContext = "Choisir";
