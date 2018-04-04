@@ -22,14 +22,20 @@ namespace MaisonDesLiguesWpf
     /// </summary>
     public partial class WinPrincipale : MetroWindow
     {
+        internal BaseDeDonnees.Bdd UneConnexion;
+
         public WinPrincipale()
         {
             InitializeComponent();
             ViewComplementInscription.Visibility = Visibility.Hidden;
             ViewNuites.Visibility = Visibility.Hidden;
             ViewBenevole.Visibility = Visibility.Hidden;
+
+            new ComposantNuitee
+            {
+                Margin = new Thickness(400, 400, 200, 200)
+            };
         }
-        internal BaseDeDonnees.Bdd UneConnexion;
 
         public void InitBddConnexion(Bdd UneConnexionOracle)
         {
@@ -99,7 +105,7 @@ namespace MaisonDesLiguesWpf
         public void GererInscriptionBenevole()
         {
             ViewBenevole.Visibility = Visibility.Visible;
-            ViewBenevole.Margin = new Thickness(28,382,467,239);
+            ViewBenevole.Margin = new Thickness(40, 433, 599, 103);
             ViewComplementInscription.Visibility = Visibility.Hidden;
         }
 
@@ -111,17 +117,17 @@ namespace MaisonDesLiguesWpf
 
         private void GererInscriptionIntervenant()
         {
-            ViewComplementInscription.Visibility = Visibility.Visible;
-            ViewBenevole.Visibility = Visibility.Hidden;
-            ViewNuites.Visibility = Visibility.Visible;
-            //ViewLicencie.Visibility = Visibility.Hidden;
-            PanFonctionIntervenant.Visibility = Visibility.Visible;
-            Thickness margin = new Thickness();
-            margin.Top = 264;
-            margin.Left = 23;
-            GrpIntervenant.Margin = margin;
-            Utilitaire.CreerDesControles(this, UneConnexion, "VSTATUT01", "Rad_", PanFonctionIntervenant, "RadioButton", this.rdbStatutIntervenant_StateChanged);
-            Utilitaire.RemplirComboBox(UneConnexion, ComboboxComplementInscription, "VATELIER01");
+            //ViewComplementInscription.Visibility = Visibility.Visible;
+            //ViewBenevole.Visibility = Visibility.Hidden;
+            //ViewNuites.Visibility = Visibility.Visible;
+            ////ViewLicencie.Visibility = Visibility.Hidden;
+            //PanFonctionIntervenant.Visibility = Visibility.Visible;
+            //Thickness margin = new Thickness();
+            //margin.Top = 264;
+            //margin.Left = 23;
+            //GrpIntervenant.Margin = margin;
+            //Utilitaire.CreerDesControles(this, UneConnexion, "VSTATUT01", "Rad_", PanFonctionIntervenant, "RadioButton", this.rdbStatutIntervenant_StateChanged);
+            //Utilitaire.RemplirComboBox(UneConnexion, ComboboxComplementInscription, "VATELIER01");
 
             ComboboxComplementInscription.DataContext = "Choisir";
         }
