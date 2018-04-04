@@ -18,8 +18,8 @@
         <Label x:Name="LblLoginTitre" Content="Application Assises de l'escrime" HorizontalAlignment="Left" Margin="142,19,0,0" VerticalAlignment="Top" Width="293" FontSize="20"/>
         <Label x:Name="LblMdp" Content="Mot de Passe : " HorizontalAlignment="Left" Margin="41,102,0,0" VerticalAlignment="Top" Width="427"/>
         <Label x:Name="LblLogin" Content="Login : " HorizontalAlignment="Left" Margin="41,75,0,0" VerticalAlignment="Top" Width="66"/>
-        <TextBox x:Name="TextboxLoginLogin" HorizontalAlignment="Left" Height="23" Margin="190,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="310"/>
-        <TextBox x:Name="TextboxLoginMdp" HorizontalAlignment="Left" Height="23" Margin="190,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="310"/>
+        <TextBox x:Name="TextboxLoginLogin" HorizontalAlignment="Left" Height="23" Margin="190,75,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="310" Text="employemdl"/>
+        <TextBox x:Name="TextboxLoginMdp" HorizontalAlignment="Left" Height="23" Margin="190,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="310" Text="employemdl"/>
         <Button x:Name="BtnLoginConnecter" Content="Connecter" HorizontalAlignment="Left" Margin="217,171,0,0" VerticalAlignment="Top" Width="180" Height="30" Click="BtnLogin_Click"/>
         <RadioButton x:Name="RadLoginLycee" Content="Lycee" HorizontalAlignment="Left" Margin="190,139,0,0" VerticalAlignment="Top" IsChecked="True"/>
         <RadioButton x:Name="RadLoginMaison" Content="Maison" HorizontalAlignment="Left" Margin="263,139,0,0" VerticalAlignment="Top"/>
