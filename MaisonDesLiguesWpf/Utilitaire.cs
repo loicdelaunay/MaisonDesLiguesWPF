@@ -9,7 +9,6 @@ using System.Windows.Controls.Primitives;
 using Xceed.Utils;
 using BaseDeDonnees;
 using Xceed.Wpf;
-using BaseDeDonnees;
 
 namespace MaisonDesLiguesWpf
 {
