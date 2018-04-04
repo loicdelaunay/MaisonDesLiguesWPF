@@ -42,6 +42,7 @@ namespace MaisonDesLiguesWpf
                 }
                 this.Hide();
                 WinPrincipale Principale = new WinPrincipale();
+                Principale.InitBddConnexion(UneConnexion);
                 Principale.Show();
             }
             catch (Exception ex)

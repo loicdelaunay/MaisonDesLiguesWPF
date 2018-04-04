@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BaseDeDonnees;
 
 namespace MaisonDesLiguesWpf
 {
@@ -27,6 +28,12 @@ namespace MaisonDesLiguesWpf
             ViewNuites.Visibility = Visibility.Hidden;
             ViewBenevole.Visibility = Visibility.Hidden;
         }
+        internal BaseDeDonnees.Bdd UneConnexion;
+
+        public void InitBddConnexion(Bdd UneConnexionOracle)
+        {
+            UneConnexion = UneConnexionOracle;
+        }
 
         /// <summary>
         /// Bouton pour quitter l'application 
@@ -40,6 +47,18 @@ namespace MaisonDesLiguesWpf
             {
                 Application.Current.Shutdown();
             }
+        }
+
+        /// <summary>
+        /// permet d'appeler la méthode VerifBtnEnregistreIntervenant qui déterminera le statu du bouton BtnEnregistrerIntervenant
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void rdbStatutIntervenant_StateChanged(object sender, EventArgs e)
+        {
+            // stocke dans un membre de niveau form l'identifiant du statut sélectionné (voir règle de nommage des noms des controles : prefixe_Id)
+            //this.IdStatutSelectionne = ((RadioButton)sender).Name.Split('_')[1];
+            //BtnEnregistrerIntervenant.Enabled = VerifBtnEnregistreIntervenant();
         }
 
         /// <summary>
@@ -76,12 +95,24 @@ namespace MaisonDesLiguesWpf
 
         public void GererInscriptionLicencie()
         {
-            ViewBenevole.Visibility = Visibility.Hidden;
+            //ViewBenevole.Visibility = Visibility.Hidden;
         }
 
-        public void GererInscriptionIntervenant()
+
+        private void GererInscriptionIntervenant()
         {
+            ViewComplementInscription.Visibility = Visibility.Visible;
             ViewBenevole.Visibility = Visibility.Hidden;
+            //ViewLicencie.Visibility = Visibility.Hidden;
+            PanFonctionIntervenant.Visibility = Visibility.Visible;
+            Thickness margin = new Thickness();
+            margin.Top = 264;
+            margin.Left = 23;
+            GrpIntervenant.Margin = margin;
+            Utilitaire.CreerDesControles(this, UneConnexion, "VSTATUT01", "Rad_", PanFonctionIntervenant, "RadioButton", this.rdbStatutIntervenant_StateChanged);
+            Utilitaire.RemplirComboBox(UneConnexion, ComboboxComplementInscription, "VATELIER01");
+
+            ComboboxComplementInscription.DataContext = "Choisir";
         }
     }
 }
