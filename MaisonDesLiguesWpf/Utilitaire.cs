@@ -28,7 +28,7 @@ namespace MaisonDesLiguesWpf
         /// <param name="UneLigne">un enregistrement de la vue, celle pour laquelle on crée le contrôle</param> 
         /// <param name="i"> Un compteur qui sert à positionner en hauteur le controle</param>   
         /// <param name="callback"> Le pointeur de fonction. En fait le pointeur sur la fonction qui réagira à l'événement déclencheur </param>
-        private static void AffecterControle(Window UnePage, StackPanel UnContainer, ButtonBase UnControleAPlacer, String UnPrefixe, DataRow UneLigne, Int16 i, Action<object, EventArgs> callback)
+        private static void AffecterControle(Window UnePage, Panel UnContainer, ButtonBase UnControleAPlacer, String UnPrefixe, DataRow UneLigne, Int16 i, Action<object, EventArgs> callback)
         {
             UnControleAPlacer.Name = UnPrefixe + UneLigne[0];
             UnControleAPlacer.Width = 320;
@@ -74,7 +74,7 @@ namespace MaisonDesLiguesWpf
         /// <param name="UnPanel">panel ou groupbox dans lequel on va créer les controles</param>
         /// <param name="unTypeControle">type de controle à créer : checkbox ou radiobutton</param>
         /// <param name="callback"> Le pointeur de fonction. En fait le pointeur sur la fonction qui réagira à l'événement déclencheur </param>
-        public static void CreerDesControles(Window UneForme, Bdd UneConnexion, String pUneTable, String pPrefixe, StackPanel UnPanel, String unTypeControle, Action<object, EventArgs> callback)
+        public static void CreerDesControles(Window UneForme, Bdd UneConnexion, String pUneTable, String pPrefixe, Panel UnPanel, String unTypeControle, Action<object, EventArgs> callback)
         {
             DataTable UneTable = UneConnexion.ObtenirDonnesOracle(pUneTable);
             // on va récupérer les statuts dans un datatable puis on va parcourir les lignes(rows) de ce datatable pour 
@@ -113,9 +113,9 @@ namespace MaisonDesLiguesWpf
         public static void RemplirComboBox(Bdd UneConnexion, ComboBox UneCombo, String UneSource)
         {
 
-            UneCombo.DataContext = UneConnexion.ObtenirDonnesOracle(UneSource);
-            UneCombo.DisplayMemberPath = "libelle";
-            UneCombo.SelectedValuePath = "id";
+            UneCombo.ItemsSource = UneConnexion.ObtenirDonnesOracle(UneSource).Rows;
+            UneCombo.DisplayMemberPath = ".[" + "libelle" + "]";
+            UneCombo.SelectedValuePath = ".[" + "id" + "]";
         }
         /// <summary>
         /// Cette fonction va compter le nombre de controles types CheckBox qui sont cochées contenus dans la collection controls
