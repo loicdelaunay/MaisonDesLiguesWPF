@@ -22,6 +22,9 @@ namespace MaisonDesLiguesWpf
     /// </summary>
     public partial class WinPrincipale : MetroWindow
     {
+        internal BaseDeDonnees.Bdd UneConnexion;
+        private String IdStatutSelectionne = "";
+
         public WinPrincipale()
         {
             InitializeComponent();
@@ -29,8 +32,6 @@ namespace MaisonDesLiguesWpf
             ViewNuites.Visibility = Visibility.Hidden;
             ViewBenevole.Visibility = Visibility.Hidden;
         }
-        internal BaseDeDonnees.Bdd UneConnexion;
-        private String IdStatutSelectionne = "";
 
         public void InitBddConnexion(Bdd UneConnexionOracle)
         {
@@ -67,7 +68,7 @@ namespace MaisonDesLiguesWpf
         {
             // stocke dans un membre de niveau form l'identifiant du statut sélectionné (voir règle de nommage des noms des controles : prefixe_Id)
             this.IdStatutSelectionne = ((RadioButton)sender).Name.Split('_')[1];
-            BtnComplInscIterven.Visibility = VerifBtnEnregistreIntervenant();
+            BtnComplInscIterven.IsEnabled = VerifBtnEnregistreIntervenant();
         }
 
         /// <summary>
@@ -75,16 +76,9 @@ namespace MaisonDesLiguesWpf
         /// Cette méthode permetra ensuite de définir l'état du bouton BtnEnregistrerIntervenant
         /// </summary>
         /// <returns></returns>
-        private Visibility VerifBtnEnregistreIntervenant()
+        private bool VerifBtnEnregistreIntervenant()
         {
-            if (ComboboxComplementInscription.Text != "Choisir" && this.IdStatutSelectionne.Length > 0)
-            {
-                return Visibility.Visible;
-            }
-            else
-            {
-                return Visibility.Hidden;
-            }
+            return (ComboboxComplementInscription.Text != "Choisir" && this.IdStatutSelectionne.Length > 0);
         }
 
         /// <summary>
@@ -124,27 +118,48 @@ namespace MaisonDesLiguesWpf
             }
         }
 
-        /// <summary>
-        /// Gestion 
+        /// <summary>     
+        /// procédure permettant d'afficher l'interface de saisie des disponibilités des bénévoles.
         /// </summary>
         public void GererInscriptionBenevole()
         {
+            PanelDispoBenevole.Children.Clear();
+            Utilitaire.CreerDesControles(this, UneConnexion, "VDATEBENEVOLAT01", "ChkDateB_", PanelDispoBenevole, "CheckBox", this.ChkDateBenevole_DataChanged);
+            // on va tester si le controle à placer est de type CheckBox afin de lui placer un événement checked_changed
+            // Ceci afin de désactiver les boutons si aucune case à cocher du container n'est cochée
+            foreach (Control UnControle in PanelDispoBenevole.Children)
+            {
+                if (UnControle.GetType().Name == "CheckBox")
+                {
+                    CheckBox UneCheckBox = (CheckBox)UnControle;
+                    UneCheckBox.Checked += new System.Windows.RoutedEventHandler(this.ChkDateBenevole_DataChanged);
+                    TxtDateNaissance.TextChanged += new System.Windows.Controls.TextChangedEventHandler(this.ChkDateBenevole_DataChanged);
+                    TxtLicenceBenevole.TextChanged += new System.Windows.Controls.TextChangedEventHandler(this.ChkDateBenevole_DataChanged);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Cetet méthode teste les données saisies afin d'activer ou désactiver le bouton d'enregistrement d'un bénévole
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ChkDateBenevole_DataChanged(object sender, EventArgs e)
+        {
+            BtnEnregistreBenevole.IsEnabled = true;
         }
 
         public void GererInscriptionLicencie()
         {
         }
 
-
+        /// <summary>     
+        /// procédure permettant d'afficher l'interface de saisie du complément d'inscription d'un intervenant.
+        /// </summary>
         private void GererInscriptionIntervenant()
         {
             Utilitaire.CreerDesControles(this, UneConnexion, "VSTATUT01", "Rad_", PanFonctionIntervenant, "RadioButton", this.rdbStatutIntervenant_StateChanged);
             Utilitaire.RemplirComboBox(UneConnexion, ComboboxComplementInscription, "VATELIER01");
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }
