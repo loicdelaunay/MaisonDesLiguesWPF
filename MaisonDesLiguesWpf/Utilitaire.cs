@@ -113,9 +113,9 @@ namespace MaisonDesLiguesWpf
         public static void RemplirComboBox(Bdd UneConnexion, ComboBox UneCombo, String UneSource)
         {
 
-            UneCombo.DataContext = UneConnexion.ObtenirDonnesOracle(UneSource);
-            UneCombo.DisplayMemberPath = "libelle";
-            UneCombo.SelectedValuePath = "id";
+            UneCombo.ItemsSource = UneConnexion.ObtenirDonnesOracle(UneSource).Rows;
+            UneCombo.DisplayMemberPath = ".[" + "libelle" + "]";
+            UneCombo.SelectedValuePath = ".[" + "id" + "]";
         }
         /// <summary>
         /// Cette fonction va compter le nombre de controles types CheckBox qui sont cochées contenus dans la collection controls

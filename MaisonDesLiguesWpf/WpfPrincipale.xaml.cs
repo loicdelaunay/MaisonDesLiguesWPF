@@ -30,6 +30,7 @@ namespace MaisonDesLiguesWpf
             ViewBenevole.Visibility = Visibility.Hidden;
         }
         internal BaseDeDonnees.Bdd UneConnexion;
+        private String IdStatutSelectionne = "";
 
         public void InitBddConnexion(Bdd UneConnexionOracle)
         {
@@ -65,8 +66,25 @@ namespace MaisonDesLiguesWpf
         private void rdbStatutIntervenant_StateChanged(object sender, EventArgs e)
         {
             // stocke dans un membre de niveau form l'identifiant du statut sélectionné (voir règle de nommage des noms des controles : prefixe_Id)
-            //this.IdStatutSelectionne = ((RadioButton)sender).Name.Split('_')[1];
-            //BtnEnregistrerIntervenant.Enabled = VerifBtnEnregistreIntervenant();
+            this.IdStatutSelectionne = ((RadioButton)sender).Name.Split('_')[1];
+            BtnComplInscIterven.Visibility = VerifBtnEnregistreIntervenant();
+        }
+
+        /// <summary>
+        /// Méthode privée testant le contrôle combo et la variable IdStatutSelectionne qui contient une valeur
+        /// Cette méthode permetra ensuite de définir l'état du bouton BtnEnregistrerIntervenant
+        /// </summary>
+        /// <returns></returns>
+        private Visibility VerifBtnEnregistreIntervenant()
+        {
+            if (ComboboxComplementInscription.Text != "Choisir" && this.IdStatutSelectionne.Length > 0)
+            {
+                return Visibility.Visible;
+            }
+            else
+            {
+                return Visibility.Hidden;
+            }
         }
 
         /// <summary>
@@ -76,15 +94,28 @@ namespace MaisonDesLiguesWpf
         /// <param name="e"></param>
         private void RadTypeParticipant_Changed(object sender, RoutedEventArgs e)
         {
+            ViewBenevole.Visibility = Visibility.Hidden;
+            ViewComplementInscription.Visibility = Visibility.Hidden;
+            PanFonctionIntervenant.Visibility = Visibility.Hidden;
+            ViewNuites.Visibility = Visibility.Hidden;
+            //ViewLicencie.Visibility = Visibility.Hidden;
+            PanFonctionIntervenant.Children.Clear();
+            PanFonctionIntervenant.Visibility = Visibility.Hidden;
+
             switch (((RadioButton)sender).Name)
             {
                 case "RadBenevole":
+                    ViewBenevole.Visibility = Visibility.Visible;
                     this.GererInscriptionBenevole();
                     break;
                 case "RadLicencie":
+                    //ViewLicencie.Visibility = Visibility.Visible;
                     this.GererInscriptionLicencie();
                     break;
                 case "RadIntervenant":
+                    ViewComplementInscription.Visibility = Visibility.Visible;
+                    PanFonctionIntervenant.Visibility = Visibility.Visible;
+                    ViewNuites.Visibility = Visibility.Visible;
                     this.GererInscriptionIntervenant();
                     break;
                 default:
@@ -98,32 +129,17 @@ namespace MaisonDesLiguesWpf
         /// </summary>
         public void GererInscriptionBenevole()
         {
-            ViewBenevole.Visibility = Visibility.Visible;
-            ViewBenevole.Margin = new Thickness(28,382,467,239);
-            ViewComplementInscription.Visibility = Visibility.Hidden;
         }
 
         public void GererInscriptionLicencie()
         {
-            //ViewBenevole.Visibility = Visibility.Hidden;
         }
 
 
         private void GererInscriptionIntervenant()
         {
-            ViewComplementInscription.Visibility = Visibility.Visible;
-            ViewBenevole.Visibility = Visibility.Hidden;
-            ViewNuites.Visibility = Visibility.Visible;
-            //ViewLicencie.Visibility = Visibility.Hidden;
-            PanFonctionIntervenant.Visibility = Visibility.Visible;
-            Thickness margin = new Thickness();
-            margin.Top = 264;
-            margin.Left = 23;
-            GrpIntervenant.Margin = margin;
             Utilitaire.CreerDesControles(this, UneConnexion, "VSTATUT01", "Rad_", PanFonctionIntervenant, "RadioButton", this.rdbStatutIntervenant_StateChanged);
             Utilitaire.RemplirComboBox(UneConnexion, ComboboxComplementInscription, "VATELIER01");
-
-            ComboboxComplementInscription.DataContext = "Choisir";
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

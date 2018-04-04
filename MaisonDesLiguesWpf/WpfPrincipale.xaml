@@ -42,7 +42,7 @@
 				<Rectangle x:Name="RectComplementInscription" Fill="White" HorizontalAlignment="Left" Stroke="Black" Width="616" Margin="0,23,0,-182"/>
 				<Label x:Name="LblComplemententInscription" Content="Complément Inscription Intervenant " HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="230"/>
 				<Label x:Name="LblAtelier" Content="Atelier : " HorizontalAlignment="Left" Margin="9,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="59" Height="23"/>
-				<ComboBox x:Name="ComboboxComplementInscription" HorizontalAlignment="Left" Margin="68,40,0,0" VerticalAlignment="Top" Width="289" RenderTransformOrigin="0.417,0.545"/>
+				<ComboBox x:Name="ComboboxComplementInscription" HorizontalAlignment="Left" Margin="68,40,0,0" VerticalAlignment="Top" Width="289" RenderTransformOrigin="0.417,0.545" IsEditable="True" IsReadOnly="True" Text="Choisir"/>
 				<Button x:Name="BtnComplInscIterven" Content="Enregistrer" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="346,280,0,-162" Width="126" Height="30" Click="Button_Click"/>
 				<Viewbox x:Name="ViewNuites" Margin="9,67,289,-127" Stretch="Fill">
 					<Grid Height="211" Width="399">
