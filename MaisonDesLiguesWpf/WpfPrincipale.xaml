@@ -14,83 +14,84 @@
         GlowBrush="Black"
         Icon="Ressources/LogoTxt.png"
         ResizeMode="CanResizeWithGrip">
-    <Grid Margin="0,-15,0,18">
-        <Viewbox x:Name="ViewIdentite" Margin="36,188,757,337" Stretch="Fill">
-            <Grid Height="246" Width="401">
-                <Rectangle x:Name="RectIdentite" Fill="White" HorizontalAlignment="Left" Height="218" Margin="0,26,-25,-19" Stroke="Black" VerticalAlignment="Top" Width="399"/>
-                <Label x:Name="LblNom" Content="Nom :" HorizontalAlignment="Left" Margin="9,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="42" Height="23"/>
-                <Label x:Name="LblIdentite" Content="Identité" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="100" Margin="0,4,0,0"/>
-                <TextBox Controls:TextBoxHelper.Watermark="Votre nom" x:Name="TxtboxNom" HorizontalAlignment="Left" Height="23" Margin="56,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <Label x:Name="LblPrenom" Content="Prénom :" HorizontalAlignment="Left" Margin="192,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="57" Height="23"/>
-                <TextBox x:Name="TextboxPrenom" HorizontalAlignment="Left" Height="23" Margin="254,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
-                <Label Content="Prénom :" HorizontalAlignment="Left" Margin="192,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="57" Height="23"/>
-                <Label x:Name="LblAdresse" Content="Adresse : " HorizontalAlignment="Left" Margin="9,88,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="59" Height="23"/>
-                <TextBox x:Name="TxtboxAdresse1" HorizontalAlignment="Left" Height="23" Margin="73,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301"/>
-                <TextBox x:Name="TxtboxAdresse2" HorizontalAlignment="Left" Height="23" Margin="73,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301"/>
-                <Label x:Name="LblCp" Content="CP : " HorizontalAlignment="Left" Margin="9,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="59" Height="23"/>
-                <Label x:Name="LblVille" Content="Ville : " HorizontalAlignment="Left" Margin="149,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="59" Height="23"/>
-                <TextBox x:Name="TextboxVille" HorizontalAlignment="Left" Height="23" Margin="192,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
-                <Label x:Name="LblTel" Content="Tél : " HorizontalAlignment="Left" Margin="9,202,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="59" Height="23"/>
-                <Label x:Name="LblMail" Content="Mail : " HorizontalAlignment="Left" Margin="149,202,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="59" Height="23"/>
-                <TextBox x:Name="TextboxMail" HorizontalAlignment="Left" Height="23" Margin="192,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
-                <xctk:MaskedTextBox x:Name="Msktextbox_Tel" HorizontalAlignment="Left" Height="23" Margin="48,163,0,0" TextWrapping="Wrap" Text="MaskedTextBox" VerticalAlignment="Top" Width="96" Mask="00000"/>
-                <xctk:MaskedTextBox x:Name="Msktextbox_TelCP" HorizontalAlignment="Left" Height="23" Margin="48,202,0,0" TextWrapping="Wrap" Text="MaskedTextBox" VerticalAlignment="Top" Width="96" Mask="00 00 00 00 00"/>
-            </Grid>
-        </Viewbox>
-        <Viewbox x:Name="ViewComplementInscription" Margin="36,450,459,171" Stretch="Fill">
-            <Grid Height="148" Width="697">
-                <Rectangle x:Name="RectComplementInscription" Fill="White" HorizontalAlignment="Left" Stroke="Black" Width="510" Margin="0,23,0,-182"/>
-                <Label x:Name="LblComplemententInscription" Content="Complément Inscription Intervenant " HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="230"/>
-                <Label x:Name="LblAtelier" Content="Atelier : " HorizontalAlignment="Left" Margin="9,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="59" Height="23"/>
-                <ComboBox x:Name="ComboboxComplementInscription" HorizontalAlignment="Left" Margin="68,40,0,0" VerticalAlignment="Top" Width="289" RenderTransformOrigin="0.417,0.545"/>
-                <Button x:Name="BtnComplInscIterven" Content="Enregistrer" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="346,280,0,-162" Width="126" Height="30" Click="Button_Click"/>
-                <Viewbox x:Name="ViewNuites" Margin="9,67,289,-127" Stretch="Fill">
-                    <Grid Height="211" Width="399">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="0*"/>
-                            <ColumnDefinition Width="13*"/>
-                            <ColumnDefinition Width="6*"/>
-                        </Grid.ColumnDefinitions>
+	<Grid Margin="0,-15,0,18">
+		<Viewbox x:Name="ViewIdentite" Margin="36,188,757,337" Stretch="Fill">
+			<Grid Height="246" Width="401">
+				<Rectangle x:Name="RectIdentite" Fill="White" HorizontalAlignment="Left" Height="218" Margin="0,26,-25,-19" Stroke="Black" VerticalAlignment="Top" Width="399"/>
+				<Label x:Name="LblNom" Content="Nom :" HorizontalAlignment="Left" Margin="9,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="42" Height="23"/>
+				<Label x:Name="LblIdentite" Content="Identité" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="100" Margin="0,4,0,0"/>
+				<TextBox Controls:TextBoxHelper.Watermark="Votre nom" x:Name="TxtboxNom" HorizontalAlignment="Left" Height="23" Margin="56,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+				<Label x:Name="LblPrenom" Content="Prénom :" HorizontalAlignment="Left" Margin="192,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="57" Height="23"/>
+				<TextBox x:Name="TextboxPrenom" HorizontalAlignment="Left" Height="23" Margin="254,47,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+				<Label Content="Prénom :" HorizontalAlignment="Left" Margin="192,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="57" Height="23"/>
+				<Label x:Name="LblAdresse" Content="Adresse : " HorizontalAlignment="Left" Margin="9,88,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="59" Height="23"/>
+				<TextBox x:Name="TxtboxAdresse1" HorizontalAlignment="Left" Height="23" Margin="73,88,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301"/>
+				<TextBox x:Name="TxtboxAdresse2" HorizontalAlignment="Left" Height="23" Margin="73,116,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301"/>
+				<Label x:Name="LblCp" Content="CP : " HorizontalAlignment="Left" Margin="9,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="59" Height="23"/>
+				<Label x:Name="LblVille" Content="Ville : " HorizontalAlignment="Left" Margin="149,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="59" Height="23"/>
+				<TextBox x:Name="TextboxVille" HorizontalAlignment="Left" Height="23" Margin="192,163,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
+				<Label x:Name="LblTel" Content="Tél : " HorizontalAlignment="Left" Margin="9,202,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="59" Height="23"/>
+				<Label x:Name="LblMail" Content="Mail : " HorizontalAlignment="Left" Margin="149,202,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="59" Height="23"/>
+				<TextBox x:Name="TextboxMail" HorizontalAlignment="Left" Height="23" Margin="192,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
+				<xctk:MaskedTextBox x:Name="Msktextbox_Tel" HorizontalAlignment="Left" Height="23" Margin="48,163,0,0" TextWrapping="Wrap" Text="MaskedTextBox" VerticalAlignment="Top" Width="96" Mask="00000"/>
+				<xctk:MaskedTextBox x:Name="Msktextbox_TelCP" HorizontalAlignment="Left" Height="23" Margin="48,202,0,0" TextWrapping="Wrap" Text="MaskedTextBox" VerticalAlignment="Top" Width="96" Mask="00 00 00 00 00"/>
+			</Grid>
+		</Viewbox>
+		<Viewbox x:Name="ViewComplementInscription" Margin="36,450,459,171" Stretch="Fill">
+			<Grid x:Name="GrpIntervenant" Height="148" Width="697">
+				<Rectangle x:Name="RectComplementInscription" Fill="White" HorizontalAlignment="Left" Stroke="Black" Width="616" Margin="0,23,0,-182"/>
+				<Label x:Name="LblComplemententInscription" Content="Complément Inscription Intervenant " HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="230"/>
+				<Label x:Name="LblAtelier" Content="Atelier : " HorizontalAlignment="Left" Margin="9,39,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="59" Height="23"/>
+				<ComboBox x:Name="ComboboxComplementInscription" HorizontalAlignment="Left" Margin="68,40,0,0" VerticalAlignment="Top" Width="289" RenderTransformOrigin="0.417,0.545"/>
+				<Button x:Name="BtnComplInscIterven" Content="Enregistrer" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="346,280,0,-162" Width="126" Height="30" Click="Button_Click"/>
+				<Viewbox x:Name="ViewNuites" Margin="9,67,289,-127" Stretch="Fill">
+					<Grid Height="211" Width="399">
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="0*"/>
+							<ColumnDefinition Width="13*"/>
+							<ColumnDefinition Width="6*"/>
+						</Grid.ColumnDefinitions>
                         <Rectangle x:Name="RectNuites" Fill="White" HorizontalAlignment="Left" Height="190" Margin="0,21,0,0" Stroke="Black" VerticalAlignment="Top" Width="399" Grid.ColumnSpan="3"/>
-                        <Label x:Name="LblNuites" Content="Nuités" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="230" Grid.ColumnSpan="2"/>
-                        <RadioButton x:Name="RadNuiteOui" Content="Oui" HorizontalAlignment="Left" Margin="13,31,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
-                        <RadioButton x:Name="RadNuiteNon" Content="Non" HorizontalAlignment="Left" Margin="126,31,0,0" VerticalAlignment="Top" IsChecked="True" Grid.ColumnSpan="2"/>
-                    </Grid>
-                </Viewbox>
-            </Grid>
-        </Viewbox>
-        <Viewbox x:Name="ViewBenevole" Margin="618,94,21,442" Stretch="Fill">
-            <Grid Height="236" Width="703">
-                <Rectangle x:Name="GrpBenevole" Fill="#FFFDFDFD" Height="173" Margin="0,21,192,0" Stroke="Black" VerticalAlignment="Top"/>
-                <Label Content="Disponibilités Bénévole" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="136"/>
-                <Label Content="Date de naissance : " HorizontalAlignment="Left" Margin="25,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="118" Height="23"/>
-                <Label Content="Numéro de licence : " HorizontalAlignment="Left" Margin="25,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="118" Height="24"/>
-                <xctk:MaskedTextBox HorizontalAlignment="Left" Height="23" Margin="162,46,0,0" TextWrapping="Wrap" Text="MaskedTextBox" VerticalAlignment="Top" Width="322" Mask="00/00/0000"/>
-                <xctk:MaskedTextBox HorizontalAlignment="Left" Height="23" Margin="162,85,0,0" TextWrapping="Wrap" Text="MaskedTextBox" VerticalAlignment="Top" Width="322" Mask="000000000000"/>
-                <Button Content="Enregistrer" HorizontalAlignment="Left" Margin="421,194,0,0" VerticalAlignment="Top" Width="125" Height="30"/>
+						<Label x:Name="LblNuites" Content="Nuités" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="230" Grid.ColumnSpan="2"/>
+						<RadioButton x:Name="RadNuiteOui" Content="Oui" HorizontalAlignment="Left" Margin="13,31,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2"/>
+						<RadioButton x:Name="RadNuiteNon" Content="Non" HorizontalAlignment="Left" Margin="126,31,0,0" VerticalAlignment="Top" IsChecked="True" Grid.ColumnSpan="2"/>
+					</Grid>
+				</Viewbox>
+				<StackPanel x:Name="PanFonctionIntervenant" HorizontalAlignment="Left" Height="100" Margin="372,40,0,0" VerticalAlignment="Top" Width="234"/>
+			</Grid>
+		</Viewbox>
+		<Viewbox x:Name="ViewBenevole" Margin="618,94,21,442" Stretch="Fill">
+			<Grid Height="236" Width="703">
+				<Rectangle x:Name="GrpBenevole" Fill="#FFFDFDFD" Height="173" Margin="0,21,192,0" Stroke="Black" VerticalAlignment="Top"/>
+				<Label Content="Disponibilités Bénévole" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="136"/>
+				<Label Content="Date de naissance : " HorizontalAlignment="Left" Margin="25,40,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="118" Height="23"/>
+				<Label Content="Numéro de licence : " HorizontalAlignment="Left" Margin="25,84,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="118" Height="24"/>
+				<xctk:MaskedTextBox HorizontalAlignment="Left" Height="23" Margin="162,46,0,0" TextWrapping="Wrap" Text="MaskedTextBox" VerticalAlignment="Top" Width="322" Mask="00/00/0000"/>
+				<xctk:MaskedTextBox HorizontalAlignment="Left" Height="23" Margin="162,85,0,0" TextWrapping="Wrap" Text="MaskedTextBox" VerticalAlignment="Top" Width="322" Mask="000000000000"/>
+				<Button Content="Enregistrer" HorizontalAlignment="Left" Margin="421,194,0,0" VerticalAlignment="Top" Width="125" Height="30"/>
 
-            </Grid>
-        </Viewbox>
-        <Viewbox x:Name="ViewAutre" Margin="454,115,598,408" Stretch="Fill">
-            <Grid Height="246" Width="140">
-                <Image HorizontalAlignment="Left" Height="210" VerticalAlignment="Top" Width="140" Source="Ressources/affiche.jpg" Stretch="Fill" Cursor="None"/>
-                <Button Content="Quitter" HorizontalAlignment="Left" Margin="0,215,0,0" VerticalAlignment="Top" Width="140" Height="31" Click="Btn_ExitAsync"/>
+			</Grid>
+		</Viewbox>
+		<Viewbox x:Name="ViewAutre" Margin="454,115,598,408" Stretch="Fill">
+			<Grid Height="246" Width="140">
+				<Image HorizontalAlignment="Left" Height="210" VerticalAlignment="Top" Width="140" Source="Ressources/affiche.jpg" Stretch="Fill" Cursor="None"/>
+				<Button Content="Quitter" HorizontalAlignment="Left" Margin="0,215,0,0" VerticalAlignment="Top" Width="140" Height="31" Click="Btn_ExitAsync"/>
 
-            </Grid>
-        </Viewbox>
-        <Viewbox x:Name="ViewParticipant" Margin="36,94,757,587" Stretch="Fill">
-            <Grid Height="88" Width="399">
-                <Rectangle x:Name="RectParticipant1" Fill="#FFFDFDFD" HorizontalAlignment="Left" Height="67" Margin="0,21,0,0" Stroke="Black" VerticalAlignment="Top" Width="399"/>
-                <RadioButton x:Name="RadIntervenant" Content="Intervenant" HorizontalAlignment="Left" Margin="21,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
-                <RadioButton x:Name="RadLicencie" Content="Licencié" HorizontalAlignment="Left" Margin="143,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
-                <RadioButton x:Name="RadBenevole" Content="Bénévole" HorizontalAlignment="Left" Margin="254,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
-                <Label Content="Tupe Participant" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="100" Margin="1,0,0,0"/>
-            </Grid>
-        </Viewbox>
-        <TabControl HorizontalAlignment="Left" Height="79" Margin="0,10,0,0" VerticalAlignment="Top" Width="1192">
-            <TabItem Header="Inscription"/>
-            <TabItem Header="Soon"/>
-        </TabControl>
+			</Grid>
+		</Viewbox>
+		<Viewbox x:Name="ViewParticipant" Margin="36,94,757,587" Stretch="Fill">
+			<Grid Height="88" Width="399">
+				<Rectangle x:Name="RectParticipant1" Fill="#FFFDFDFD" HorizontalAlignment="Left" Height="67" Margin="0,21,0,0" Stroke="Black" VerticalAlignment="Top" Width="399"/>
+				<RadioButton x:Name="RadIntervenant" Content="Intervenant" HorizontalAlignment="Left" Margin="21,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
+				<RadioButton x:Name="RadLicencie" Content="Licencié" HorizontalAlignment="Left" Margin="143,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
+				<RadioButton x:Name="RadBenevole" Content="Bénévole" HorizontalAlignment="Left" Margin="254,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
+				<Label Content="Tupe Participant" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="100" Margin="1,0,0,0"/>
+			</Grid>
+		</Viewbox>
+		<TabControl HorizontalAlignment="Left" Height="79" Margin="0,10,0,0" VerticalAlignment="Top" Width="1192">
+			<TabItem Header="Inscription"/>
+			<TabItem Header="Soon"/>
+		</TabControl>
 
-    </Grid>
+	</Grid>
 </Controls:MetroWindow>
