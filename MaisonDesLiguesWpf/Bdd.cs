@@ -10,7 +10,7 @@ using Oracle.ManagedDataAccess.Client;
 
 namespace BaseDeDonnees
 {
-    class Bdd
+    public class Bdd
     {
         //
         // propriétés membres
