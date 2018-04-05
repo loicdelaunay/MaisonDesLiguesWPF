@@ -1,0 +1,19 @@
+﻿<UserControl x:Class="MaisonDesLiguesWpf.ComposantNuitee"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             xmlns:local="clr-namespace:MaisonDesLiguesWpf"
+             mc:Ignorable="d" Height="55" Width="631">
+    <Grid HorizontalAlignment="Left" Height="55" VerticalAlignment="Top" Width="631" Margin="0,0,-179,0" Background="#FFE8E8E8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <CheckBox Name="Chbx_laCheckbox" HorizontalAlignment="Left" Margin="10,20,0,0" VerticalAlignment="Top" Height="16" Width="17" Click="CheckedClick"/>
+        <Label Name="Lbl_laDate" Content="Label" HorizontalAlignment="Left" Margin="39,14,0,0" VerticalAlignment="Top" Width="187" Height="28"/>
+        <ComboBox Name="Combobox_LesHotels" HorizontalAlignment="Left" Margin="231,10,0,0" VerticalAlignment="Top" Width="282" Height="35"/>
+        <ComboBox Name="Combobox_LesChambres" HorizontalAlignment="Left" Margin="529,10,0,0" VerticalAlignment="Top" Width="90" Height="35"/>
+    </Grid>
+</UserControl>
