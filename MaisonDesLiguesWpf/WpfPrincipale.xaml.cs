@@ -104,17 +104,12 @@ namespace MaisonDesLiguesWpf
             switch (((RadioButton)sender).Name)
             {
                 case "RadBenevole":
-                    ViewBenevole.Visibility = Visibility.Visible;
                     this.GererInscriptionBenevole();
                     break;
                 case "RadLicencie":
-                    //ViewLicencie.Visibility = Visibility.Visible;
                     this.GererInscriptionLicencie();
                     break;
                 case "RadIntervenant":
-                    ViewComplementInscription.Visibility = Visibility.Visible;
-                    PanFonctionIntervenant.Visibility = Visibility.Visible;
-                    ViewNuites.Visibility = Visibility.Visible;
                     this.GererInscriptionIntervenant();
                     break;
                 default:
@@ -128,6 +123,7 @@ namespace MaisonDesLiguesWpf
         /// </summary>
         public void GererInscriptionBenevole()
         {
+            ViewBenevole.Visibility = Visibility.Visible;
             PanelDispoBenevole.Children.Clear();
             Utilitaire.CreerDesControles(this, UneConnexion, "VDATEBENEVOLAT01", "ChkDateB_", PanelDispoBenevole, "CheckBox", this.ChkDateBenevole_DataChanged);
             // on va tester si le controle à placer est de type CheckBox afin de lui placer un événement checked_changed
@@ -156,6 +152,10 @@ namespace MaisonDesLiguesWpf
 
         public void GererInscriptionLicencie()
         {
+            ViewComplementLicencie.Visibility = Visibility.Visible;
+            ViewComplementLicencie.Margin = new Thickness(38, 432, 668, 189);
+            ViewComplementInscription.Visibility = Visibility.Hidden;
+            ViewBenevole.Visibility = Visibility.Hidden;
         }
 
         /// <summary>     
@@ -163,6 +163,9 @@ namespace MaisonDesLiguesWpf
         /// </summary>
         private void GererInscriptionIntervenant()
         {
+            ViewComplementInscription.Visibility = Visibility.Visible;
+            PanFonctionIntervenant.Visibility = Visibility.Visible;
+            ViewNuites.Visibility = Visibility.Visible;
             Utilitaire.CreerDesControles(this, UneConnexion, "VSTATUT01", "Rad_", PanFonctionIntervenant, "RadioButton", this.rdbStatutIntervenant_StateChanged);
             Utilitaire.RemplirComboBox(UneConnexion, ComboboxComplementInscription, "VATELIER01");
         }
