@@ -28,14 +28,6 @@ namespace MaisonDesLiguesWpf
 
         public ComposantNuitee()
         {
-            InitializeComponent();
-            Combobox_LesChambres.Items.Add("Test");
-            Combobox_LesChambres.Items.Add("Test2");
-            Combobox_LesChambres.Items.Add("Test3");
-            Combobox_LesHotels.Items.Add("Test");
-            Combobox_LesHotels.Items.Add("Test2");
-            Combobox_LesHotels.Items.Add("Test3");
-            this.SetLaDate(new DateTime(2011,05,11));
         }
 
         /// <summary>
