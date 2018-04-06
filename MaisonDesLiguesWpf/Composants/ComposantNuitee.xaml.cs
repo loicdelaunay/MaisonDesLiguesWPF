@@ -49,6 +49,10 @@ namespace MaisonDesLiguesWpf
             return this.laDate;
         }
 
+        /// <summary>
+        /// Retourner l'état du composant 
+        /// </summary>
+        /// <returns></returns>
         public Boolean IsChecked()
         {
             return (Boolean)Chbx_laCheckbox.IsChecked;
@@ -82,6 +86,24 @@ namespace MaisonDesLiguesWpf
         private void CheckedClick(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        /// <summary>
+        /// Retourne l'Hotel Séléctionné 
+        /// </summary>
+        /// <returns></returns>
+        public string GetHotelSelected()
+        {
+            return Combobox_LesHotels.SelectedIndex.ToString();
+        }
+
+        /// <summary>
+        /// Retourne la chambre Séléctionné 
+        /// </summary>
+        /// <returns></returns>
+        public string GetChambreSelected()
+        {
+            return Combobox_LesChambres.SelectedIndex.ToString();
         }
     }
 }
