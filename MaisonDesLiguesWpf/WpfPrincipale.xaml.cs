@@ -28,6 +28,7 @@ namespace MaisonDesLiguesWpf
         public WinPrincipale()
         {
             InitializeComponent();
+            ViewComplementLicencie.Visibility = Visibility.Hidden;
             ViewComplementInscription.Visibility = Visibility.Hidden;
             ViewNuites.Visibility = Visibility.Hidden;
             ViewBenevole.Visibility = Visibility.Hidden;
@@ -55,7 +56,7 @@ namespace MaisonDesLiguesWpf
             //{
             //    Application.Current.Shutdown();
             //}
-            MessageDialogResult result = await this.ShowMessageAsync("MAISON DES LIGUES", "Voulez-vous quitter l'application ?",MessageDialogStyle.AffirmativeAndNegative);
+            MessageDialogResult result = await this.ShowMessageAsync("MAISON DES LIGUES", "Voulez-vous quitter l'application ?", MessageDialogStyle.AffirmativeAndNegative);
             if (result == MessageDialogResult.Affirmative)
             {
                 Application.Current.Shutdown();
@@ -93,11 +94,11 @@ namespace MaisonDesLiguesWpf
         /// <param name="e"></param>
         private void RadTypeParticipant_Changed(object sender, RoutedEventArgs e)
         {
+            ViewComplementLicencie.Visibility = Visibility.Hidden;
             ViewBenevole.Visibility = Visibility.Hidden;
             ViewComplementInscription.Visibility = Visibility.Hidden;
             PanFonctionIntervenant.Visibility = Visibility.Hidden;
             ViewNuites.Visibility = Visibility.Hidden;
-            //ViewLicencie.Visibility = Visibility.Hidden;
             PanFonctionIntervenant.Children.Clear();
             PanFonctionIntervenant.Visibility = Visibility.Hidden;
 
@@ -124,6 +125,7 @@ namespace MaisonDesLiguesWpf
         public void GererInscriptionBenevole()
         {
             ViewBenevole.Visibility = Visibility.Visible;
+            ViewBenevole.Margin = new Thickness(38, 432, 668, 189);
             PanelDispoBenevole.Children.Clear();
             Utilitaire.CreerDesControles(this, UneConnexion, "VDATEBENEVOLAT01", "ChkDateB_", PanelDispoBenevole, "CheckBox", this.ChkDateBenevole_DataChanged);
             // on va tester si le controle à placer est de type CheckBox afin de lui placer un événement checked_changed
@@ -150,12 +152,13 @@ namespace MaisonDesLiguesWpf
             BtnEnregistreBenevole.IsEnabled = true;
         }
 
+        /// <summary>     
+        /// procédure permettant d'afficher l'interface de saisie des disponibilités des bénévoles.
+        /// </summary>
         public void GererInscriptionLicencie()
         {
             ViewComplementLicencie.Visibility = Visibility.Visible;
             ViewComplementLicencie.Margin = new Thickness(38, 432, 668, 189);
-            ViewComplementInscription.Visibility = Visibility.Hidden;
-            ViewBenevole.Visibility = Visibility.Hidden;
         }
 
         /// <summary>     
@@ -169,5 +172,44 @@ namespace MaisonDesLiguesWpf
             Utilitaire.CreerDesControles(this, UneConnexion, "VSTATUT01", "Rad_", PanFonctionIntervenant, "RadioButton", this.rdbStatutIntervenant_StateChanged);
             Utilitaire.RemplirComboBox(UneConnexion, ComboboxComplementInscription, "VATELIER01");
         }
+
+        /// <summary>
+        /// Gestion des radio button du type de participant 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RadTypeRepas_Changed(object sender, RoutedEventArgs e)
+        {
+        }
+
+        /// <summary>
+        /// Gestion des radio button du type de participant 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void RadTypeNuite_Changed(object sender, RoutedEventArgs e)
+        {
+            ComposantNuitee nuite = new ComposantNuitee
+            {
+                Margin = new Thickness(0, -50, 0, 0),
+                Name = "test",
+                Height = 20,
+                Width = 200,
+            };
+            GrilleNuites.Children.Add(nuite);
+            switch (((RadioButton)sender).Name)
+            {
+                case "RadNuiteOuiLicencie":
+                    nuite.Visibility = Visibility.Visible;
+                    break;
+                case "RadNuiteNonLicencie":
+                    nuite.Visibility = Visibility.Hidden;
+                    break;
+                default:
+                    throw new Exception("Erreur interne dans l'application");
+
+            }
+        }
+
     }
 }
