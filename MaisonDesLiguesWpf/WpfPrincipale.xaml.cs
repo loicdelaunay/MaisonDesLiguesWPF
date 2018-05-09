@@ -223,13 +223,14 @@ namespace MaisonDesLiguesWpf
                     Collection<String> CategoriesSelectionnees = new Collection<string>();
                     foreach (Control UnControle in PanNuiteIntervenant.Children)
                     {
-                        //TODO
+                        ////TODO
                         //if (UnControle.GetType().Name == "ResaNuite" && ((ComposantNuitee)UnControle).GetNuitSelectionnee())
                         //{
                         //    // la nuité a été cochée, il faut donc envoyer l'hotel et la type de chambre à la procédure de la base qui va enregistrer le contenu hébergement 
                         //    //ContenuUnHebergement UnContenuUnHebergement= new ContenuUnHebergement();
                         //    CategoriesSelectionnees.Add(((ComposantNuitee)UnControle).GetChambreSelected());
                         //    HotelsSelectionnes.Add(((ComposantNuitee)UnControle).GetHotelSelected());
+                        //    //TODO
                         //    NuitsSelectionnes.Add(((ComposantNuitee)UnControle).IdNuite);
                         //}
 
