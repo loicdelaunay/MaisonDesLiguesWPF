@@ -7,6 +7,7 @@ using System.Text.RegularExpressions;  // bibliothèque pour les expressions ré
 using System.Configuration;
 using System.Windows;
 using Oracle.ManagedDataAccess.Client;
+using MaisonDesLiguesWpf;
 
 namespace BaseDeDonnees
 {
@@ -148,6 +149,7 @@ namespace BaseDeDonnees
                 pLesDates.Size = pDateBenevolat.Count;
                 UneOracleCommand.Parameters.Add(pLesDates);
                 UneOracleCommand.ExecuteNonQuery();
+                Utilitaire.SendMail(pMail, pPrenom, pNom);
                 MessageBox.Show("inscription bénévole effectuée");
             }
             catch (OracleException Oex)
@@ -208,6 +210,7 @@ namespace BaseDeDonnees
                 UneOracleCommand.ExecuteNonQuery();
                 // fin de la transaction. Si on arrive à ce point, c'est qu'aucune exception n'a été levée
                 UneOracleTransaction.Commit();
+                Utilitaire.SendMail(pMail, pPrenom, pNom);
             }
             catch (OracleException Oex)
             {

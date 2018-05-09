@@ -9,6 +9,8 @@ using System.Windows.Controls.Primitives;
 using Xceed.Utils;
 using BaseDeDonnees;
 using Xceed.Wpf;
+using System.Net.Mail;
+using MahApps.Metro.Controls.Dialogs;
 
 namespace MaisonDesLiguesWpf
 {
@@ -134,6 +136,48 @@ namespace MaisonDesLiguesWpf
                 }
             }
             return i;
+        }
+
+        /// <summary>
+        /// Envoi du mail.
+        /// </summary>
+        /// <param name="mail">Mail destinataire</param>
+        /// <param name="prenom">Prénom du destinataire</param>
+        /// <param name="nom">Nom du destinataire</param>
+        public static void SendMail(string mail, string prenom, string nom)
+        {
+            try
+            {
+                MailMessage message = new MailMessage();
+                SmtpClient smtp = new SmtpClient();
+
+                message.From = new MailAddress("mdlgroupe1@gmail.com");
+                message.To.Add(new MailAddress(mail));
+                message.CC.Add("mdlgroupe1@gmail.com");
+                message.Subject = "Inscription";
+                message.Body = "Bonjour " + prenom + " " + nom + "," +
+                    "\n" +
+                    "Merci de vous être inscrit" +
+                    "\n" +
+                    "\n" + "Ce message fait suite à la réussite de votre inscription à travers notre application" +
+                    "\n" + "Maison des ligues \n" +
+                    "Bien à vous, le groupe 1.\n" +
+                    "\n" +
+                    "-------------------------------------------------------------------------------------------------\n" +
+                    "Ceci est un message automatique.\n" +
+                    "Merci de ne pas y répondre.\n";
+                smtp.Port = 587;
+                smtp.Host = "smtp.gmail.com";
+                smtp.EnableSsl = true;
+                smtp.UseDefaultCredentials = false;
+                smtp.Credentials = new System.Net.NetworkCredential("mdlgroupe1@gmail.com", "Guilulo83");
+                smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtp.Send(message);
+            }
+            catch (Exception ex)
+            {
+                MessageBoxResult result = MessageBox.Show(ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }
