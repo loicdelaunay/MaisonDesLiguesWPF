@@ -52,7 +52,7 @@ namespace MaisonDesLiguesWpf.Composants
         /// Récupère l'élément séléctionné de la liste 1
         /// </summary>
         /// <returns></returns>
-        public string GetElementList1()
+        public string GetElementSelectedList1()
         {
             return listbox1.SelectedIndex.ToString();
         }
@@ -70,7 +70,7 @@ namespace MaisonDesLiguesWpf.Composants
         /// Récupère l'élément séléctionné de la liste 2
         /// </summary>
         /// <returns></returns>
-        public string GetElementList2()
+        public string GetElementSelectedList2()
         {
             return listbox2.SelectedIndex.ToString();
         }
