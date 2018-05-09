@@ -21,7 +21,6 @@
         </Grid.ColumnDefinitions>
         <Viewbox x:Name="ViewIdentite" Margin="35,171,747,354" Stretch="Fill">
             <Grid Name="GridIdendite" Height="246" Width="401">
-                <local:ComposantNuitee></local:ComposantNuitee>
                 <Rectangle x:Name="RectIdentite" Fill="White" HorizontalAlignment="Left" Height="218" Margin="0,26,-25,-19" Stroke="Black" VerticalAlignment="Top" Width="399"/>
                 <Label x:Name="LblNom" Content="Nom :" HorizontalAlignment="Left" Margin="9,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="42" Height="23"/>
                 <Label x:Name="LblIdentite" Content="Identité" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="100" Margin="0,4,0,0"/>
