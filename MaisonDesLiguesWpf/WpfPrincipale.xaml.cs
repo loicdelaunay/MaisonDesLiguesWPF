@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BaseDeDonnees;
+using System.Collections.ObjectModel;
 
 namespace MaisonDesLiguesWpf
 {
@@ -144,7 +145,7 @@ namespace MaisonDesLiguesWpf
         /// <param name="e"></param>
         private void ChkDateBenevole_DataChanged(object sender, EventArgs e)
         {
-            BtnEnregistreBenevole.IsEnabled = true;
+            BtnEnregistreBenevole.IsEnabled = (TxtDateNaissance.IsMaskFull && TxtLicenceBenevole.IsMaskFull);
         }
 
         /// <summary>     
@@ -165,6 +166,7 @@ namespace MaisonDesLiguesWpf
             PanFonctionIntervenant.Visibility = Visibility.Visible;
             ViewNuites.Visibility = Visibility.Visible;
             Utilitaire.CreerDesControles(this, UneConnexion, "VSTATUT01", "Rad_", PanFonctionIntervenant, "RadioButton", this.rdbStatutIntervenant_StateChanged);
+            ComboboxComplementInscription.SelectionChanged += new System.Windows.Controls.SelectionChangedEventHandler(this.rdbStatutIntervenant_StateChanged);
             Utilitaire.RemplirComboBox(UneConnexion, ComboboxComplementInscription, "VATELIER01");
         }
 
