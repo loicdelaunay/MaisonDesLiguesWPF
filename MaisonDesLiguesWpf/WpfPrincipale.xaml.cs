@@ -180,6 +180,26 @@ namespace MaisonDesLiguesWpf
         /// <param name="e"></param>
         private void RadTypeRepas_Changed(object sender, RoutedEventArgs e)
         {
+            ComposantNuitee repas = new ComposantNuitee
+            {
+                Margin = new Thickness(10, 68, -241, 0),
+                Name = "Repas",
+                Height = 23,
+                Width = 200,
+            };
+            GrilleRepas.Children.Add(repas);
+            switch (((RadioButton)sender).Name)
+            {
+                case "RadOuiRepasAccompagnant":
+                    repas.Visibility = Visibility.Visible;
+                    break;
+                case "RadNonRepasAccompagnant":
+                    repas.Visibility = Visibility.Hidden;
+                    break;
+                default:
+                    throw new Exception("Erreur interne dans l'application");
+
+            }
         }
 
         /// <summary>
@@ -191,19 +211,20 @@ namespace MaisonDesLiguesWpf
         {
             ComposantNuitee nuite = new ComposantNuitee
             {
-                Margin = new Thickness(0, -50, 0, 0),
-                Name = "test",
-                Height = 20,
+                Margin = new Thickness(10, 60, -241, 0),
+                Name = "Nuitée",
+                Height = 23,
                 Width = 200,
             };
-            GrilleNuites.Children.Add(nuite);
             switch (((RadioButton)sender).Name)
             {
                 case "RadNuiteOuiLicencie":
                     nuite.Visibility = Visibility.Visible;
+                    GrilleNuites.Children.Add(nuite);
                     break;
                 case "RadNuiteNonLicencie":
                     nuite.Visibility = Visibility.Hidden;
+                    GrilleNuites.Children.Remove(nuite);
                     break;
                 default:
                     throw new Exception("Erreur interne dans l'application");
