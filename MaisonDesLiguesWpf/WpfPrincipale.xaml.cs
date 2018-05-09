@@ -33,6 +33,13 @@ namespace MaisonDesLiguesWpf
             ViewComplementInscription.Visibility = Visibility.Hidden;
             ViewNuites.Visibility = Visibility.Hidden;
             ViewBenevole.Visibility = Visibility.Hidden;
+            ComposantNuitee nuite = new ComposantNuitee
+            {
+                Margin = new Thickness(0, 0, 0, 0),
+                Name = "test",
+                Height = 100,
+                Width = 700,
+            };
         }
 
         public void InitBddConnexion(Bdd UneConnexionOracle)
@@ -69,7 +76,10 @@ namespace MaisonDesLiguesWpf
         private void rdbStatutIntervenant_StateChanged(object sender, EventArgs e)
         {
             // stocke dans un membre de niveau form l'identifiant du statut sélectionné (voir règle de nommage des noms des controles : prefixe_Id)
-            this.IdStatutSelectionne = ((RadioButton)sender).Name.Split('_')[1];
+            if (sender.GetType() == typeof(RadioButton))
+            {
+                this.IdStatutSelectionne = ((RadioButton)sender).Name.Split('_')[1];
+            }
             BtnComplInscIterven.IsEnabled = VerifBtnEnregistreIntervenant();
         }
 
