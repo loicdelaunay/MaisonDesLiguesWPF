@@ -28,14 +28,6 @@ namespace MaisonDesLiguesWpf
 
         public ComposantNuitee()
         {
-            InitializeComponent();
-            Combobox_LesChambres.Items.Add("Test");
-            Combobox_LesChambres.Items.Add("Test2");
-            Combobox_LesChambres.Items.Add("Test3");
-            Combobox_LesHotels.Items.Add("Test");
-            Combobox_LesHotels.Items.Add("Test2");
-            Combobox_LesHotels.Items.Add("Test3");
-            this.SetLaDate(new DateTime(2011,05,11));
         }
 
         /// <summary>
@@ -57,6 +49,10 @@ namespace MaisonDesLiguesWpf
             return this.laDate;
         }
 
+        /// <summary>
+        /// Retourner l'état du composant 
+        /// </summary>
+        /// <returns></returns>
         public Boolean IsChecked()
         {
             return (Boolean)Chbx_laCheckbox.IsChecked;
@@ -90,6 +86,24 @@ namespace MaisonDesLiguesWpf
         private void CheckedClick(object sender, RoutedEventArgs e)
         {
 
+        }
+
+        /// <summary>
+        /// Retourne l'Hotel Séléctionné 
+        /// </summary>
+        /// <returns></returns>
+        public string GetHotelSelected()
+        {
+            return Combobox_LesHotels.SelectedIndex.ToString();
+        }
+
+        /// <summary>
+        /// Retourne la chambre Séléctionné 
+        /// </summary>
+        /// <returns></returns>
+        public string GetChambreSelected()
+        {
+            return Combobox_LesChambres.SelectedIndex.ToString();
         }
     }
 }

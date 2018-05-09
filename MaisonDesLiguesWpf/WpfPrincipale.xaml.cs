@@ -32,11 +32,6 @@ namespace MaisonDesLiguesWpf
             ViewComplementInscription.Visibility = Visibility.Hidden;
             ViewNuites.Visibility = Visibility.Hidden;
             ViewBenevole.Visibility = Visibility.Hidden;
-
-            new ComposantNuitee
-            {
-                Margin = new Thickness(400, 400, 200, 200)
-            };
         }
 
         public void InitBddConnexion(Bdd UneConnexionOracle)
