@@ -39,7 +39,7 @@
 				<Label x:Name="LblMail" Content="Mail : " HorizontalAlignment="Left" Margin="149,202,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="59" Height="23"/>
 				<TextBox mah:TextBoxHelper.Watermark="Votre email" x:Name="TextboxMail" HorizontalAlignment="Left" Height="23" Margin="192,202,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="182"/>
                 <xctk:MaskedTextBox x:Name="Msktextbox_Tel" HorizontalAlignment="Left" Height="23" Margin="48,163,0,0" TextWrapping="Wrap" Text="MaskedTextBox" VerticalAlignment="Top" Width="96" Mask="00000"/>
-                <xctk:MaskedTextBox x:Name="Msktextbox_TelCP" HorizontalAlignment="Left" Height="23" Margin="48,202,0,0" TextWrapping="Wrap" Text="MaskedTextBox" VerticalAlignment="Top" Width="96" Mask="00 00 00 00 00"/>
+				<xctk:MaskedTextBox x:Name="Msktextbox_CP" HorizontalAlignment="Left" Height="23" Margin="48,202,0,0" TextWrapping="Wrap" Text="MaskedTextBox" VerticalAlignment="Top" Width="96" Mask="00 00 00 00 00"/>
 			</Grid>
 		</Viewbox>
 		<Viewbox x:Name="ViewComplementLicencie" Margin="524,435,180,186">
