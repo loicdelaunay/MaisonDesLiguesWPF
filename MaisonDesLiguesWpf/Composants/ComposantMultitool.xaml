@@ -4,10 +4,10 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:MaisonDesLiguesWpf.Composants"
-             mc:Ignorable="d" Width="700" Height="50" MinWidth="700" MinHeight="50">
-    <Grid HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="700" Background="Teal">
-        <CheckBox Name="checkbox" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Height="50" Width="141" Margin="16,0,0,0"/>
-        <ComboBox Name="listbox1" HorizontalAlignment="Left" Margin="174,0,0,0" VerticalAlignment="Top" Width="227" Height="50"/>
-        <ComboBox Name="listbox2" HorizontalAlignment="Left" Margin="418,0,0,0" VerticalAlignment="Top" Width="282" Height="50"/>
+             mc:Ignorable="d" Width="484" Height="28.667" RenderTransformOrigin="9,0">
+    <Grid HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="486" Background="Teal" Margin="0,0,0,-1">
+        <CheckBox Name="checkbox" Content="CheckBox" HorizontalAlignment="Left" VerticalAlignment="Top" Height="30" Width="141" Margin="5,0,0,0"/>
+        <ComboBox Name="listbox1" HorizontalAlignment="Left" Margin="105,0,0,0" VerticalAlignment="Top" Width="169" Height="30" RenderTransformOrigin="0.507,-0.111"/>
+        <ComboBox Name="listbox2" HorizontalAlignment="Left" Margin="303,0,0,0" VerticalAlignment="Top" Width="179" Height="30" MinHeight="0"/>
     </Grid>
 </UserControl>
