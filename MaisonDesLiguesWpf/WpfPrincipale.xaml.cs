@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using BaseDeDonnees;
+using MaisonDesLiguesWpf;
 
 namespace MaisonDesLiguesWpf
 {
@@ -211,6 +212,7 @@ namespace MaisonDesLiguesWpf
                 Height = 23,
                 Width = 200,
             };
+            GrilleRepas.Children.Add(nuite);
             switch (((RadioButton)sender).Name)
             {
                 case "RadNuiteOuiLicencie":
