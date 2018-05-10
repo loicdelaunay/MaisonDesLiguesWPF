@@ -348,5 +348,18 @@ namespace BaseDeDonnees
             return "Data Source=(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=" + host + ")(PORT=" + port + ")))(CONNECT_DATA=(SERVER=DEDICATED)(SERVICE_NAME=" + sid + ")));User Id = " + user + "; Password = " + pass + ";";
         }
 
+        /// <summary>
+        /// Enregistre l'arrivée d'un participant
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="pass"></param>
+        public void enregistrerParticipant(string id, string pass)
+        {
+            UneOracleCommand = new OracleCommand("update PARTICIPANT set CLEWIFI = :pass, DATEENREGISTREMENTARRIVEE = SYSDATE where ID = " + System.Convert.ToInt16(id), CnOracle);
+            UneOracleCommand.CommandType = CommandType.Text;
+            //TODO UneOracleCommand.Parameters.Add("id", OracleDbType.Int16, System.Convert.ToInt16(id), ParameterDirection.Input);
+            UneOracleCommand.Parameters.Add("pass", pass);
+            UneOracleCommand.ExecuteNonQuery();
+        }
     }
 }

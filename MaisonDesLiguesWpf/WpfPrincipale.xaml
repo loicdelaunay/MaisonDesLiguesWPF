@@ -4,16 +4,31 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaisonDesLiguesWpf"
-    xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+		xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="MaisonDesLiguesWpf.WinPrincipale"
         mc:Ignorable="d"
         Title="Inscription" 
-    Height="800" 
-    Width="1200"
-            BorderThickness="0" 
+		Height="800" 
+		Width="1200"
+        BorderThickness="0" 
         GlowBrush="Black"
         Icon="Ressources/LogoTxt.png"
         ResizeMode="CanResizeWithGrip">
+	<Window.Resources>
+		<DataTemplate x:Key="ParticipantsDataTemplate" >
+			<StackPanel Margin="3" >
+				<DockPanel >
+					<TextBlock Text="{Binding NOMPARTICIPANT}" FontWeight="Bold" />
+					<TextBlock Text="  " />
+					<TextBlock Text="{Binding PRENOMPARTICIPANT}" FontWeight="Bold" />
+				</DockPanel>
+				<DockPanel >
+					<TextBlock Text="#" FontWeight="Bold" />
+					<TextBlock Text="{Binding ID}" FontWeight="Bold" />
+				</DockPanel>
+			</StackPanel>
+		</DataTemplate>
+	</Window.Resources>
 	<TabControl HorizontalAlignment="Left" Height="50" Margin="0,16,0,0" VerticalAlignment="Top" Width="1192" Grid.ColumnSpan="2">
 		<TabItem Header="Inscription">
 			<Grid HorizontalAlignment="Center" Margin="0,-83,0,-683" VerticalAlignment="Center" Height="771">
@@ -123,18 +138,34 @@
 				</Viewbox>
 				<Viewbox x:Name="ViewParticipant" Margin="35,77,747,604" Stretch="Fill">
 					<Grid Height="88" Width="399">
-						<Rectangle x:Name="RectParticipant1" Fill="#FFFDFDFD" HorizontalAlignment="Left" Height="67" Margin="0,21,0,0" Stroke="Black" VerticalAlignment="Top" Width="399"/>
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition Width="163*"/>
+							<ColumnDefinition Width="236*"/>
+						</Grid.ColumnDefinitions>
+						<Rectangle x:Name="RectParticipant1" Fill="#FFFDFDFD" HorizontalAlignment="Left" Height="67" Margin="0,21,0,0" Stroke="Black" VerticalAlignment="Top" Width="399" Grid.ColumnSpan="2"/>
 						<RadioButton x:Name="RadIntervenant" Content="Intervenant" HorizontalAlignment="Left" Margin="21,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
-						<RadioButton x:Name="RadLicencie" Content="Licencié" HorizontalAlignment="Left" Margin="143,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
-						<RadioButton x:Name="RadBenevole" Content="Bénévole" HorizontalAlignment="Left" Margin="254,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
+						<RadioButton x:Name="RadLicencie" Content="Licencié" HorizontalAlignment="Left" Margin="143,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed" Grid.ColumnSpan="2"/>
+						<RadioButton x:Name="RadBenevole" Content="Bénévole" HorizontalAlignment="Left" Margin="91.042,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed" Grid.Column="1"/>
 						<Label Content="Tupe Participant" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="100" Margin="1,0,0,0"/>
 					</Grid>
 				</Viewbox>
 			</Grid>
 		</TabItem>
 		<TabItem Header="Enregistrement">
-
+			<Grid Height="679" Margin="10,19,11,-693" VerticalAlignment="Top">
+				<Rectangle Fill="#FFFDFDFD" HorizontalAlignment="Left" Height="610" Margin="10,59,0,0" Stroke="Black" VerticalAlignment="Top" Width="433"/>
+				<ListBox x:Name="listParticipants" HorizontalAlignment="Left" Height="572" Margin="30,78,0,0" VerticalAlignment="Top" Width="394" ItemsSource="{Binding}"   ItemTemplate="{StaticResource ParticipantsDataTemplate}" SelectionChanged="listParticipants_SelectionChanged"/>
+				<Button Content="Rafraichir" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="120" Height="31" Click="ButtonRefreshList_Click"/>
+				<Label Content="Rechercher :" HorizontalAlignment="Left" Margin="141,12,0,0" VerticalAlignment="Top"/>
+				<TextBox x:Name="searchbar" HorizontalAlignment="Left" Height="31" Margin="228,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="260" TextChanged="TextBox_TextChanged"/>
+				<Rectangle Fill="#FFFDFDFD" HorizontalAlignment="Left" Height="610" Margin="468,59,0,0" Stroke="Black" VerticalAlignment="Top" Width="687"/>
+				<Button x:Name="btnEnregistrerArrive" Content="Enregistrer l'arrivée" HorizontalAlignment="Left" Margin="672,78,0,0" VerticalAlignment="Top" Width="269" Height="60" FontSize="16" Click="btnEnregistrerArrive_Click" IsEnabled="False"/>
+				<Label Content="Code WIFI :" HorizontalAlignment="Left" Margin="492,180,0,0" VerticalAlignment="Top" Height="36" Width="137" FontSize="18"/>
+				<TextBox x:Name="codeWifi" HorizontalAlignment="Left" Height="36" Margin="605,180,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="527"/>
+				<Label Content="QR Code :" HorizontalAlignment="Left" Margin="492,248,0,0" VerticalAlignment="Top" Height="36" Width="137" FontSize="18"/>
+				<Image x:Name="imgQRCode" HorizontalAlignment="Left" Height="296" Margin="652,293,0,0" VerticalAlignment="Top" Width="326"/>
+			</Grid>
 		</TabItem>
 	</TabControl>
-
 </Controls:MetroWindow>
+	

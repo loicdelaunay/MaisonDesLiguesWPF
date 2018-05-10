@@ -1,20 +1,15 @@
 ﻿using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using BaseDeDonnees;
 using System.Collections.ObjectModel;
+using System.Data;
+using System.Drawing.Imaging;
+using System.Windows.Media.Imaging;
+using System.IO;
 
 namespace MaisonDesLiguesWpf
 {
@@ -25,6 +20,7 @@ namespace MaisonDesLiguesWpf
     {
         internal BaseDeDonnees.Bdd UneConnexion;
         private String IdStatutSelectionne = "";
+        private DataView dvListFiltre;
 
         public WinPrincipale()
         {
@@ -145,7 +141,7 @@ namespace MaisonDesLiguesWpf
         /// <param name="e"></param>
         private void ChkDateBenevole_DataChanged(object sender, EventArgs e)
         {
-            BtnEnregistreBenevole.IsEnabled = (TxtDateNaissance.IsMaskFull && TxtLicenceBenevole.IsMaskFull);
+            BtnEnregistreBenevole.IsEnabled = (TxtDateNaissance.IsMaskFull);
         }
 
         /// <summary>     
@@ -230,6 +226,27 @@ namespace MaisonDesLiguesWpf
         }
 
         /// <summary>
+        /// Refresh de la liste des participants dans l'onglet participant
+        /// </summary>
+        private void refreshListParticipants()
+        {
+            DataSet dtSet = new DataSet();
+            DataTable dtTable = UneConnexion.ObtenirDonnesOracle("PARTICIPANT");
+            dtSet.Tables.Add(dtTable);
+            listParticipants.DataContext = dtSet.Tables[0];
+            dvListFiltre = dtTable.DefaultView;
+        }
+
+        /// <summary>
+        /// Rafraichir la liste des participants
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonRefreshList_Click(object sender, RoutedEventArgs e)
+        {
+            refreshListParticipants();
+        }
+
         /// <summary> 
         /// Permet d'intercepter le click sur le bouton d'enregistrement d'un bénévole. 
         /// Cetteméthode va appeler la méthode InscrireBenevole de la Bdd, après avoir mis en forme certains paramètres à envoyer. 
@@ -312,6 +329,95 @@ namespace MaisonDesLiguesWpf
             catch (Exception Ex)
             {
                 MessageBox.Show(Ex.Message);
+            }
+        }
+
+        /// <summary>
+        /// Change les informations en fonction du participant selectionné
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void listParticipants_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            reloadInfosParticipant();
+        }
+
+        /// <summary>
+        /// Barre de recherche
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            listParticipants.UnselectAll();
+            try{
+                dvListFiltre.RowFilter = "NOMPARTICIPANT LIKE '%" + searchbar.Text + "%' OR " + "PRENOMPARTICIPANT LIKE '%" + searchbar.Text + "%'";
+                listParticipants.DataContext = dvListFiltre;
+            }
+            catch { }
+        }
+
+        /// <summary>
+        /// Bouton d'enegistrement de l'arrivé d'un participant
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void btnEnregistrerArrive_Click(object sender, RoutedEventArgs e)
+        {
+            int lengthOfPassword = 24;
+            string valid = "abcdefghijklmnozABCDEFGHIJKLMNOZ1234567890";
+            StringBuilder strB = new StringBuilder(100);
+            Random random = new Random();
+            while (0 < lengthOfPassword--)
+            {
+                strB.Append(valid[random.Next(valid.Length)]);
+            }
+            UneConnexion.enregistrerParticipant((listParticipants.SelectedItem as DataRowView).Row["ID"].ToString(), strB.ToString());
+
+            (listParticipants.SelectedItem as DataRowView).Row["DATEENREGISTREMENTARRIVEE"] = DateTime.Now;
+            (listParticipants.SelectedItem as DataRowView).Row["CLEWIFI"] = strB.ToString();
+            reloadInfosParticipant();
+        }
+
+        /// <summary>
+        /// Rafraichir les informations du participant
+        /// </summary>
+        private void reloadInfosParticipant()
+        {
+            try
+            {
+                btnEnregistrerArrive.IsEnabled = false;
+                imgQRCode.Visibility = Visibility.Hidden;
+                codeWifi.Text = "";
+                codeWifi.IsEnabled = false;
+                btnEnregistrerArrive.Content = "Enregistrer l'arrivée";
+
+                if ((listParticipants.SelectedItem as DataRowView).Row["CLEWIFI"].ToString() != "" && (listParticipants.SelectedItem as DataRowView).Row["DATEENREGISTREMENTARRIVEE"].ToString() != "")
+                {
+                    btnEnregistrerArrive.IsEnabled = true;
+                    Zen.Barcode.CodeQrBarcodeDraw qrcode = Zen.Barcode.BarcodeDrawFactory.CodeQr;
+                    string id = (listParticipants.SelectedItem as DataRowView).Row["ID"].ToString();
+                    System.Drawing.Image img = qrcode.Draw(id, 2);
+                    BitmapImage bi = new BitmapImage();
+                    bi.BeginInit();
+                    MemoryStream ms = new MemoryStream();
+                    img.Save(ms, ImageFormat.Bmp);
+                    ms.Seek(0, SeekOrigin.Begin);
+                    bi.StreamSource = ms;
+                    bi.EndInit();
+                    imgQRCode.Source = bi;
+                    imgQRCode.Visibility = Visibility.Visible;
+                    btnEnregistrerArrive.IsEnabled = false;
+                    btnEnregistrerArrive.Content = (listParticipants.SelectedItem as DataRowView).Row["DATEENREGISTREMENTARRIVEE"].ToString();
+                    codeWifi.Text = (listParticipants.SelectedItem as DataRowView).Row["CLEWIFI"].ToString();
+                }
+                else
+                {
+                    btnEnregistrerArrive.IsEnabled = true;
+                }
+            }
+            catch
+            {
             }
         }
     }
