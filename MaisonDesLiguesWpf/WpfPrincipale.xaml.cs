@@ -16,6 +16,7 @@ using System.Windows.Shapes;
 using BaseDeDonnees;
 using MaisonDesLiguesWpf;
 using System.Collections.ObjectModel;
+using MaisonDesLiguesWpf.Composants;
 
 namespace MaisonDesLiguesWpf
 {
@@ -188,7 +189,7 @@ namespace MaisonDesLiguesWpf
         /// <param name="e"></param>
         private void RadTypeRepas_Changed(object sender, RoutedEventArgs e)
         {
-            ComposantNuitee repas = new ComposantNuitee
+            ComposantMultitool repas = new ComposantMultitool
             {
                 Margin = new Thickness(10, 68, -241, 0),
                 Name = "Repas",
