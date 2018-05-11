@@ -154,7 +154,7 @@ namespace MaisonDesLiguesWpf
                 message.From = new MailAddress("mdlgroupe1@gmail.com");
                 message.To.Add(new MailAddress(mail));
                 message.CC.Add("mdlgroupe1@gmail.com");
-                message.Subject = "Inscription";
+                message.Subject = "Inscription Maison des Ligues";
                 message.Body = "Bonjour " + prenom + " " + nom + "," +
                     "\n" +
                     "Merci de vous être inscrit" +
