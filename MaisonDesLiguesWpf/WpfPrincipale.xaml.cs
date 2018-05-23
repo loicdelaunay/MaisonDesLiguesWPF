@@ -1,7 +1,6 @@
 ﻿using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using System;
-using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using BaseDeDonnees;
