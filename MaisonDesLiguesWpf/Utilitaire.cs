@@ -170,7 +170,7 @@ namespace MaisonDesLiguesWpf
                         "Merci de ne pas y répondre.\n";
                 } else if (type == 0)
                 {
-                    message.Subject = 'Inscription invalide';
+                    message.Subject = "Inscription invalide";
                     message.Body = "Bonjour " + prenom + " " + nom + "," +
                         "\n" +
                         "Ce message fait suite à votre tentative d'inscription sur notre platforme." +

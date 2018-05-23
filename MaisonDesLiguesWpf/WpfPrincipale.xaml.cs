@@ -11,6 +11,7 @@ using System.Drawing.Imaging;
 using System.Windows.Media.Imaging;
 using System.IO;
 using MaisonDesLiguesWpf.Composants;
+using System.Text;
 
 namespace MaisonDesLiguesWpf
 {
