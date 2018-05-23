@@ -144,7 +144,7 @@ namespace MaisonDesLiguesWpf
         /// <param name="mail">Mail destinataire</param>
         /// <param name="prenom">Prénom du destinataire</param>
         /// <param name="nom">Nom du destinataire</param>
-        public static void SendMail(string mail, string prenom, string nom)
+        public static void SendMail(string mail, string prenom, string nom, int type)
         {
             try
             {
@@ -154,18 +154,35 @@ namespace MaisonDesLiguesWpf
                 message.From = new MailAddress("mdlgroupe1@gmail.com");
                 message.To.Add(new MailAddress(mail));
                 message.CC.Add("mdlgroupe1@gmail.com");
-                message.Subject = "Inscription Maison des Ligues";
-                message.Body = "Bonjour " + prenom + " " + nom + "," +
-                    "\n" +
-                    "Merci de vous être inscrit" +
-                    "\n" +
-                    "\n" + "Ce message fait suite à la réussite de votre inscription à travers notre application" +
-                    "\n" + "Maison des ligues \n" +
-                    "Bien à vous, le groupe 1.\n" +
-                    "\n" +
-                    "-------------------------------------------------------------------------------------------------\n" +
-                    "Ceci est un message automatique.\n" +
-                    "Merci de ne pas y répondre.\n";
+                if (type == 1)
+                {
+                    message.Subject = "Inscription";
+                    message.Body = "Bonjour " + prenom + " " + nom + "," +
+                        "\n" +
+                        "Merci de vous être inscrit" +
+                        "\n" +
+                        "\n" + "Ce message fait suite à la réussite de votre inscription à travers notre application" +
+                        "\n" + "Maison des ligues \n" +
+                        "Bien à vous, le groupe 1.\n" +
+                        "\n" +
+                        "-------------------------------------------------------------------------------------------------\n" +
+                        "Ceci est un message automatique.\n" +
+                        "Merci de ne pas y répondre.\n";
+                } else if (type == 0)
+                {
+                    message.Subject = 'Inscription invalide';
+                    message.Body = "Bonjour " + prenom + " " + nom + "," +
+                        "\n" +
+                        "Ce message fait suite à votre tentative d'inscription sur notre platforme." +
+                        "\n" +
+                        "\n" + "Elle n'a malheureusement pas été validé en raisons du ou des chèques envoyés qui ne correspondent pas avec vos demandes." +
+                        "\n" + "Maison des ligues \n" +
+                        "Bien à vous, le groupe 1.\n" +
+                        "\n" +
+                        "-------------------------------------------------------------------------------------------------\n" +
+                        "Ceci est un message automatique.\n" +
+                        "Merci de ne pas y répondre.\n";
+                }
                 smtp.Port = 587;
                 smtp.Host = "smtp.gmail.com";
                 smtp.EnableSsl = true;
@@ -177,6 +194,33 @@ namespace MaisonDesLiguesWpf
             catch (Exception ex)
             {
                 MessageBoxResult result = MessageBox.Show(ex.Message, "Erreur", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+        }
+        /// <summary>
+        /// Méthode qui remet à zero le champ passé en paramètre selon son Object Type.
+        /// </summary>
+        /// <param name="pControl">Champ qu'il faut remettre à zero.</param>
+        public static void EmptyChamp(Control pControl)
+        {
+            if(pControl is TextBox)
+            {
+                TextBox textBox = (TextBox)pControl;
+                textBox.Clear();
+            }
+            else if (pControl is ComboBox)
+            {
+                ComboBox comboBox = (ComboBox)pControl;
+                comboBox.SelectedIndex = 0;
+            }
+            else if(pControl is RadioButton)
+            {
+                RadioButton radioButton = (RadioButton)pControl;
+                radioButton.IsChecked = false;
+            }
+            else
+            {
+                CheckBox checkBox = (CheckBox)pControl;
+                checkBox.IsChecked = false;
             }
         }
     }

@@ -192,6 +192,7 @@ namespace MaisonDesLiguesWpf
                 Height = 23,
                 Width = 200,
             };
+
             GrilleRepas.Children.Add(repas);
             switch (((RadioButton)sender).Name)
             {
@@ -216,8 +217,8 @@ namespace MaisonDesLiguesWpf
         {
             ComposantNuitee nuite = new ComposantNuitee
             {
-                Margin = new Thickness(10, 60, -241, 0),
-                Name = "Nuitée",
+                Margin = new Thickness(10, 68, -241, 0),
+                Name = "Repas",
                 Height = 23,
                 Width = 200,
             };
