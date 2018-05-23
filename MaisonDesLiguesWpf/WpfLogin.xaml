@@ -1,10 +1,11 @@
-﻿<Controls:MetroWindow  x:Class="MaisonDesLiguesWpf.WpfLogin"
+﻿<Controls:MetroWindow
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:MaisonDesLiguesWpf"
         xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:Composants="clr-namespace:MaisonDesLiguesWpf.Composants"  x:Class="MaisonDesLiguesWpf.WpfLogin"
         mc:Ignorable="d"
         Title="WpfLogin" 
         Height="252.156" 

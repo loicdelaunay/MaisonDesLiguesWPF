@@ -21,6 +21,7 @@
         </Grid.ColumnDefinitions>
         <Viewbox x:Name="ViewIdentite" Margin="35,171,747,354" Stretch="Fill">
             <Grid Name="GridIdendite" Height="246" Width="401">
+                <local:ComposantNuitee></local:ComposantNuitee>
                 <Rectangle x:Name="RectIdentite" Fill="White" HorizontalAlignment="Left" Height="218" Margin="0,26,-25,-19" Stroke="Black" VerticalAlignment="Top" Width="399"/>
                 <Label x:Name="LblNom" Content="Nom :" HorizontalAlignment="Left" Margin="9,47,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="42" Height="23"/>
                 <Label x:Name="LblIdentite" Content="Identité" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="100" Margin="0,4,0,0"/>
@@ -47,21 +48,21 @@
                 <Label x:Name="LblComplemententLicencie" Content="Complément Inscription Licencié" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="230"/>
                 <Label x:Name="LblAtelierLicencie" Content="Atelier : " HorizontalAlignment="Left" Margin="635,79,-191,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="59" Height="23"/>
                 <Button x:Name="BtnComplInscLicencie" Content="Enregistrer" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="666,288,-289,-170" Width="126" Height="30"/>
-                <Viewbox x:Name="ViewNuitesLicencie" Margin="10,74,144,-167">
+                <Viewbox x:Name="ViewNuitesLicencie" Margin="9,67,145,-160">
                     <Grid Height="275" Width="399">
-                        <Grid x:Name="GrilleNuites" Height="150" Width="399" Margin="0,0,0,125">
+                        <Grid x:Name="GrilleNuites" Height="275" Width="399">
                             <Rectangle x:Name="RectNuitesLicencie" Fill="White" Height="110" Margin="0,21,0,0" Stroke="Black" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
                             <Label x:Name="LblNuitesLicencie" Content="Nuités" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="230" Grid.ColumnSpan="2"/>
                             <RadioButton x:Name="RadNuiteOuiLicencie" Content="Oui" HorizontalAlignment="Left" Margin="13,50,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Checked="RadTypeNuite_Changed"/>
                             <RadioButton x:Name="RadNuiteNonLicencie" Content="Non" HorizontalAlignment="Left" Margin="126,50,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Checked="RadTypeNuite_Changed"/>
                             <Label x:Name="LblNuiteLicencie" Content="Licencie :" HorizontalAlignment="Left" Margin="10,21,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="107" Height="23" Grid.Column="1"/>
                         </Grid>
-                        <Grid x:Name="GrilleRepas" Height="130" Width="399" Margin="0,145,0,0">
-                            <Rectangle x:Name="RectRepasAccompagnant" Fill="White" Height="107" Margin="0,10,0,0" Stroke="Black" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
-                            <RadioButton x:Name="RadOuiRepasAccompagnant" Content="Oui" HorizontalAlignment="Left" Margin="13,40,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Checked="RadTypeRepas_Changed"/>
-                            <RadioButton x:Name="RadNonRepasAccompagnant" Content="Non" HorizontalAlignment="Left" Margin="126,40,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Checked="RadTypeRepas_Changed"/>
-                            <Label x:Name="LblNuiteLAccompagnant" Content="Accompagnant(e) :" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="126" Height="29" Grid.Column="1"/>
-                            <Label x:Name="LblRepasAccompagnant" Content="Repas" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="230" Grid.ColumnSpan="2" Margin="0,-10,0,0"/>
+                        <Grid x:Name="GrilleRepas" Height="275" Width="399">
+                            <Rectangle x:Name="RectRepasAccompagnant" Fill="White" Height="107" Margin="0,158,0,0" Stroke="Black" VerticalAlignment="Top" Grid.ColumnSpan="3"/>
+                            <RadioButton x:Name="RadOuiRepasAccompagnant" Content="Oui" HorizontalAlignment="Left" Margin="13,187,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Checked="RadTypeRepas_Changed"/>
+                            <RadioButton x:Name="RadNonRepasAccompagnant" Content="Non" HorizontalAlignment="Left" Margin="126,187,0,0" VerticalAlignment="Top" Grid.ColumnSpan="2" Checked="RadTypeRepas_Changed"/>
+                            <Label x:Name="LblNuiteLAccompagnant" Content="Accompagnant(e) :" HorizontalAlignment="Left" Margin="10,158,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="126" Height="29" Grid.Column="1"/>
+                            <Label x:Name="LblRepasAccompagnant" Content="Repas" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="230" Grid.ColumnSpan="2" Margin="0,136,0,0"/>
                         </Grid>
                     </Grid>
                 </Viewbox>
@@ -114,29 +115,29 @@
                 <Button x:Name="BtnEnregistreBenevole" Content="Enregistrer" HorizontalAlignment="Left" Margin="443,148,0,0" VerticalAlignment="Top" Width="125" Height="30" RenderTransformOrigin="-1.291,5.224" IsEnabled="False"/>
                 <StackPanel x:Name="PanelDispoBenevole" HorizontalAlignment="Left" Height="145" Margin="25,122,0,-31" VerticalAlignment="Top" Width="459"/>
 
-			</Grid>
-		</Viewbox>
-		<Viewbox x:Name="ViewAutre" Margin="453,98,588,425" Stretch="Fill">
-			<Grid Height="246" Width="140">
-				<Image HorizontalAlignment="Left" Height="210" VerticalAlignment="Top" Width="140" Source="Ressources/affiche.jpg" Stretch="Fill" Cursor="None"/>
-				<Button Content="Quitter" HorizontalAlignment="Left" Margin="0,215,0,0" VerticalAlignment="Top" Width="140" Height="31" Click="Btn_ExitAsync"/>
+            </Grid>
+        </Viewbox>
+        <Viewbox x:Name="ViewAutre" Margin="453,98,588,425" Stretch="Fill">
+            <Grid Height="246" Width="140">
+                <Image HorizontalAlignment="Left" Height="210" VerticalAlignment="Top" Width="140" Source="Ressources/affiche.jpg" Stretch="Fill" Cursor="None"/>
+                <Button Content="Quitter" HorizontalAlignment="Left" Margin="0,215,0,0" VerticalAlignment="Top" Width="140" Height="31" Click="Btn_ExitAsync"/>
 
-			</Grid>
-		</Viewbox>
-		<Viewbox x:Name="ViewParticipant" Margin="35,77,747,604" Stretch="Fill">
-			<Grid Height="88" Width="399">
-				<Rectangle x:Name="RectParticipant1" Fill="#FFFDFDFD" HorizontalAlignment="Left" Height="67" Margin="0,21,0,0" Stroke="Black" VerticalAlignment="Top" Width="399"/>
-				<RadioButton x:Name="RadIntervenant" Content="Intervenant" HorizontalAlignment="Left" Margin="21,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
-				<RadioButton x:Name="RadLicencie" Content="Licencié" HorizontalAlignment="Left" Margin="143,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
-				<RadioButton x:Name="RadBenevole" Content="Bénévole" HorizontalAlignment="Left" Margin="254,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
-				<Label Content="Tupe Participant" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="100" Margin="1,0,0,0"/>
-			</Grid>
-		</Viewbox>
-		<TabControl HorizontalAlignment="Left" Height="50" Margin="0,16,0,0" VerticalAlignment="Top" Width="1192" Grid.ColumnSpan="2">
-			<TabItem Header="Inscription"/>
-			<TabItem Header="Soon"/>
-		</TabControl>
+            </Grid>
+        </Viewbox>
+        <Viewbox x:Name="ViewParticipant" Margin="35,77,747,604" Stretch="Fill">
+            <Grid Height="88" Width="399">
+                <Rectangle x:Name="RectParticipant1" Fill="#FFFDFDFD" HorizontalAlignment="Left" Height="67" Margin="0,21,0,0" Stroke="Black" VerticalAlignment="Top" Width="399"/>
+                <RadioButton x:Name="RadIntervenant" Content="Intervenant" HorizontalAlignment="Left" Margin="21,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
+                <RadioButton x:Name="RadLicencie" Content="Licencié" HorizontalAlignment="Left" Margin="143,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
+                <RadioButton x:Name="RadBenevole" Content="Bénévole" HorizontalAlignment="Left" Margin="254,48,0,0" VerticalAlignment="Top" Checked="RadTypeParticipant_Changed"/>
+                <Label Content="Tupe Participant" HorizontalAlignment="Left" VerticalAlignment="Top" RenderTransformOrigin="0.032,0.233" Width="100" Margin="1,0,0,0"/>
+            </Grid>
+        </Viewbox>
+        <TabControl HorizontalAlignment="Left" Height="50" Margin="0,16,0,0" VerticalAlignment="Top" Width="1192" Grid.ColumnSpan="2">
+            <TabItem Header="Inscription"/>
+            <TabItem Header="Soon"/>
+        </TabControl>
 
 
-	</Grid>
+    </Grid>
 </Controls:MetroWindow>

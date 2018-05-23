@@ -114,6 +114,7 @@
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -159,6 +160,9 @@
     <Compile Include="Composants\ComposantNuitee.xaml.cs">
       <DependentUpon>ComposantNuitee.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Composants\ComposantMultitool.xaml.cs">
+      <DependentUpon>ComposantMultitool.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Utilitaire.cs" />
     <Compile Include="WpfLogin.xaml.cs">
       <DependentUpon>WpfLogin.xaml</DependentUpon>
@@ -202,6 +206,10 @@
   </ItemGroup>
   <ItemGroup>
     <Page Include="Composants\ComposantNuitee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Composants\ComposantMultitool.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

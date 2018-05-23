@@ -4,6 +4,9 @@ using System;
 using System.Windows;
 using System.Windows.Controls;
 using BaseDeDonnees;
+using MaisonDesLiguesWpf;
+using System.Collections.ObjectModel;
+using MaisonDesLiguesWpf.Composants;
 
 namespace MaisonDesLiguesWpf
 {
@@ -22,6 +25,13 @@ namespace MaisonDesLiguesWpf
             ViewComplementInscription.Visibility = Visibility.Hidden;
             ViewNuites.Visibility = Visibility.Hidden;
             ViewBenevole.Visibility = Visibility.Hidden;
+            ComposantNuitee nuite = new ComposantNuitee
+            {
+                Margin = new Thickness(0, 0, 0, 0),
+                Name = "test",
+                Height = 100,
+                Width = 700,
+            };
         }
 
         public void InitBddConnexion(Bdd UneConnexionOracle)
@@ -58,7 +68,10 @@ namespace MaisonDesLiguesWpf
         private void rdbStatutIntervenant_StateChanged(object sender, EventArgs e)
         {
             // stocke dans un membre de niveau form l'identifiant du statut sélectionné (voir règle de nommage des noms des controles : prefixe_Id)
-            this.IdStatutSelectionne = ((RadioButton)sender).Name.Split('_')[1];
+            if (sender.GetType() == typeof(RadioButton))
+            {
+                this.IdStatutSelectionne = ((RadioButton)sender).Name.Split('_')[1];
+            }
             BtnComplInscIterven.IsEnabled = VerifBtnEnregistreIntervenant();
         }
 
@@ -166,7 +179,7 @@ namespace MaisonDesLiguesWpf
         /// <param name="e"></param>
         private void RadTypeRepas_Changed(object sender, RoutedEventArgs e)
         {
-            ComposantNuitee repas = new ComposantNuitee
+            ComposantMultitool repas = new ComposantMultitool
             {
                 Margin = new Thickness(10, 68, -241, 0),
                 Name = "Repas",
@@ -203,6 +216,7 @@ namespace MaisonDesLiguesWpf
                 Height = 23,
                 Width = 200,
             };
+            GrilleRepas.Children.Add(nuite);
             switch (((RadioButton)sender).Name)
             {
                 case "RadNuiteOuiLicencie":
