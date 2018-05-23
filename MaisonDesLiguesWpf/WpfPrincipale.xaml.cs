@@ -1,20 +1,9 @@
 ﻿using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 using BaseDeDonnees;
-using System.Collections.ObjectModel;
 
 namespace MaisonDesLiguesWpf
 {
@@ -184,6 +173,7 @@ namespace MaisonDesLiguesWpf
                 Height = 23,
                 Width = 200,
             };
+
             GrilleRepas.Children.Add(repas);
             switch (((RadioButton)sender).Name)
             {
@@ -208,8 +198,8 @@ namespace MaisonDesLiguesWpf
         {
             ComposantNuitee nuite = new ComposantNuitee
             {
-                Margin = new Thickness(10, 60, -241, 0),
-                Name = "Nuitée",
+                Margin = new Thickness(10, 68, -241, 0),
+                Name = "Repas",
                 Height = 23,
                 Width = 200,
             };

@@ -149,7 +149,7 @@ namespace BaseDeDonnees
                 pLesDates.Size = pDateBenevolat.Count;
                 UneOracleCommand.Parameters.Add(pLesDates);
                 UneOracleCommand.ExecuteNonQuery();
-                Utilitaire.SendMail(pMail, pPrenom, pNom);
+                Utilitaire.SendMail(pMail, pPrenom, pNom, 1);
                 MessageBox.Show("inscription bénévole effectuée");
             }
             catch (OracleException Oex)
@@ -160,8 +160,8 @@ namespace BaseDeDonnees
             {
                 MessageBox.Show("Autre Erreur  \n" + ex.Message);
             }
-
         }
+
         /// <summary>
         /// méthode privée permettant de valoriser les paramètres d'un objet commmand spécifiques intervenants
         /// </summary>
@@ -210,7 +210,7 @@ namespace BaseDeDonnees
                 UneOracleCommand.ExecuteNonQuery();
                 // fin de la transaction. Si on arrive à ce point, c'est qu'aucune exception n'a été levée
                 UneOracleTransaction.Commit();
-                Utilitaire.SendMail(pMail, pPrenom, pNom);
+                Utilitaire.SendMail(pMail, pPrenom, pNom, 1);
             }
             catch (OracleException Oex)
             {
