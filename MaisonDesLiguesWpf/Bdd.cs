@@ -366,12 +366,57 @@ namespace BaseDeDonnees
         {
             try
             {
-                UneOracleCommand = new OracleCommand("INSERT_ATELIER", CnOracle);
+                UneOracleCommand = new OracleCommand("insert_atelier", CnOracle);
                 UneOracleCommand.CommandType = CommandType.StoredProcedure;
                 UneOracleCommand.Parameters.Add("plibelle", OracleDbType.Char).Value = libelleAtelier;
                 UneOracleCommand.Parameters.Add("pnbplacemaxi", OracleDbType.Int32).Value = nbrPlaceMax;
                 UneOracleCommand.ExecuteNonQuery();
                 MessageBox.Show("Création de l'atelier ok");
+            }
+            catch (OracleException Oex)
+            {
+                MessageBox.Show("Erreur Oracle \n" + Oex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Autre Erreur  \n" + ex.Message);
+            }
+        }
+
+        public void CreateTheme(int idAtelier, int numero, string libelle)
+        {
+            try
+            {
+                UneOracleCommand = new OracleCommand("insert_theme", CnOracle);
+                UneOracleCommand.CommandType = CommandType.StoredProcedure;
+                UneOracleCommand.Parameters.Add("pidatelier", OracleDbType.Int32).Value = idAtelier;
+                UneOracleCommand.Parameters.Add("pnumero", OracleDbType.Int32).Value = numero;
+                UneOracleCommand.Parameters.Add("plibelle", OracleDbType.Char).Value = libelle;
+                UneOracleCommand.ExecuteNonQuery();
+                MessageBox.Show("Création theme ok");
+            }
+            catch (OracleException Oex)
+            {
+                MessageBox.Show("Erreur Oracle \n" + Oex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Autre Erreur  \n" + ex.Message);
+            }
+        }
+
+        public void CreateVacation(int idAtelier, int numero, string heureDeDebut, string heureDeFin)
+        {
+            try
+            {
+                UneOracleCommand = new OracleCommand("insert_vacation", CnOracle);
+                UneOracleCommand.CommandType = CommandType.StoredProcedure;
+                UneOracleCommand.Parameters.Add("pidatelier", OracleDbType.Int16).Value = idAtelier;
+                UneOracleCommand.Parameters.Add("pnumero", OracleDbType.Int16).Value = numero;
+                UneOracleCommand.Parameters.Add("pheuredebut", OracleDbType.Char).Value = heureDeDebut;
+                UneOracleCommand.Parameters.Add("pheurefin", OracleDbType.Char).Value = heureDeFin;
+                UneOracleCommand.ExecuteNonQuery();
+                MessageBox.Show("Création vacation ok");
             }
             catch (OracleException Oex)
             {

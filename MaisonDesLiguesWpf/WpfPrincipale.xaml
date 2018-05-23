@@ -167,23 +167,50 @@
             </Grid>
         </TabItem>
         <TabItem Header="Création atelier/thème/vacation" Margin="34,0,-34,0">
-            <TabControl HorizontalAlignment="Left" Height="702" Margin="10,-5,0,-692" VerticalAlignment="Top" Width="1176">
-                <TabItem Header="Créer atelier">
+            <TabControl x:Name="tabControle_Creation" HorizontalAlignment="Left" Height="702" Margin="10,-5,0,-692" VerticalAlignment="Top" Width="1176">
+                <TabItem x:Name="tabItem_CreerAtelier" Header="Créer atelier">
                     <Grid Height="658" VerticalAlignment="Top" Margin="-14,0,11,-679" Background="White">
-                        <TextBox x:Name="Txtbox_LibelleAtelier" mah:TextBoxHelper.Watermark="Libelle de l'atelier" HorizontalAlignment="Left" Height="23" Margin="203,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="290"/>
-                        <xctk:MaskedTextBox x:Name="Txtbox_NbMaxiPlace" HorizontalAlignment="Left" Height="23" Margin="203,109,0,0" TextWrapping="Wrap" Text="MaskedTextBox" VerticalAlignment="Top" Width="290" Mask="00000"/>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="236*"/>
+                            <ColumnDefinition Width="49*"/>
+                            <ColumnDefinition Width="888*"/>
+                        </Grid.ColumnDefinitions>
+                        <TextBox x:Name="Txtbox_LibelleAtelier" mah:TextBoxHelper.Watermark="Libelle de l'atelier" HorizontalAlignment="Left" Height="23" Margin="203,66,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="290" Grid.ColumnSpan="3"/>
+                        <xctk:MaskedTextBox x:Name="Txtbox_NbMaxiPlace" HorizontalAlignment="Left" Height="23" Margin="203,109,0,0" TextWrapping="Wrap" Text="MaskedTextBox" VerticalAlignment="Top" Width="290" Mask="00000" Grid.ColumnSpan="3"/>
                         <Label Content="Créer un atelier" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontSize="20"/>
                         <Label Content="Nombre de places maximum : " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,109,0,0"/>
                         <Label Content="Libelle de l'atelier" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,65,0,0"/>
-                        <Button x:Name="Btn_CreateAtelier" Content="Créer atelier" HorizontalAlignment="Left" Margin="369,164,0,0" VerticalAlignment="Top" Width="124" Click="Btn_CreateAtelier_Click"/>
-                        <Grid Background="#FFE5E5E5" Margin="0,0,1071,679"/>
+                        <Button x:Name="Btn_CreateAtelier" Content="Créer atelier" HorizontalAlignment="Left" Margin="84,164,0,0" VerticalAlignment="Top" Width="124" Grid.Column="2" Click="Btn_CreateAtelier_Click"/>
+                        <Grid Background="#FFE5E5E5" Margin="0,0,134,658"/>
                     </Grid>
                 </TabItem>
-                <TabItem Header="Créer vacation" Margin="10,0,-10,0">
-                    <Grid Background="White" Margin="-12,0,-1,-12"/>
+                <TabItem x:Name="tabItem_createVacation" Header="Créer vacation" Margin="10,0,-10,0">
+                    <Grid Background="White" Margin="-12,0,-1,-12">
+                        <ComboBox x:Name="comboBox_CreateVacation" HorizontalAlignment="Left" Margin="163,66,0,0" VerticalAlignment="Top" Width="512" Height="25"/>
+                        <Label Content="Créer vacation" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontSize="20"/>
+                        <Label Content="Choisir un atelier : " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,65,0,0"/>
+                        <xctk:MaskedTextBox x:Name="Txtbox_NumeroVacation" HorizontalAlignment="Left" Height="26" Margin="163,130,0,0" TextWrapping="Wrap" Text="MaskedTextBox" VerticalAlignment="Top" Width="512" Mask="0"/>
+                        <Label Content="Numéro vacation : " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,126,0,0"/>
+                        <Label Content="Heure de début : " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,186,0,0"/>
+                        <Label Content="Heure de fin : " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,244,0,0"/>
+                        <xctk:DateTimePicker x:Name="datePicker_HeureDebutVacation" Format="Custom" FormatString="dd/MM/yyyy hh:mm" TimeFormat="Custom" TimeFormatString="HH:mm" HorizontalAlignment="Left" Margin="163,186,0,0" VerticalAlignment="Top" Width="512"/>
+                        <xctk:DateTimePicker x:Name="datePicker_HeureFinVacation" Format="Custom" FormatString="dd/MM/yyyy hh:mm" TimeFormat="Custom" TimeFormatString="HH:mm" HorizontalAlignment="Left" Margin="163,244,0,0" VerticalAlignment="Top" Width="512"/>
+                        <Button x:Name="Btn_CreateVacation" Content="Créer vacation" HorizontalAlignment="Left" Margin="551,310,0,0" VerticalAlignment="Top" Width="124" Click="Btn_CreateVacation_Click"/>
+                        <Button Content="Rafraichir" x:Name="btn_rafraichirAtelier" HorizontalAlignment="Left" Margin="695,66,0,0" VerticalAlignment="Top" Width="87" Height="25" Click="btn_rafraichirAtelier_Click"/>
+                    </Grid>
                 </TabItem>
-                <TabItem Header="Créer horaire" Margin="10,0,-10,0">
-                    <Grid Background="White" Margin="-10,4,0,-19"/>
+                <TabItem x:Name="tabItem_createTheme" Header="Créer thème" Margin="10,0,-10,0">
+                    <Grid Background="White" Margin="-12,2,2,-17">
+                        <ComboBox x:Name="ComboBox_ThemeChoisirAtelier" HorizontalAlignment="Left" Margin="163,70,0,0" VerticalAlignment="Top" Width="512" Height="25" Text="Choisir un atelier"/>
+                        <Label Content="Choisir un atelier : " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="28,69,0,0"/>
+                        <Label Content="Libellé du thème : " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,126,0,0"/>
+                        <Button x:Name="Btn_CreateTheme" Content="Créer thème" HorizontalAlignment="Left" Margin="551,234,0,0" VerticalAlignment="Top" Width="124" Click="Btn_CreateTheme_Click"/>
+                        <Label Content="Créer thème" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontSize="20"/>
+                        <TextBox x:Name="Txtbox_LibelleTheme" mah:TextBoxHelper.Watermark="Libelle de l'atelier" HorizontalAlignment="Left" Height="23" Margin="163,126,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="512"/>
+                        <xctk:MaskedTextBox x:Name="Txtbox_NumeroTheme" HorizontalAlignment="Left" Height="26" Margin="163,182,0,0" TextWrapping="Wrap" Text="MaskedTextBox" VerticalAlignment="Top" Width="512" Mask="0"/>
+                        <Label Content="Numéro thème : " HorizontalAlignment="Left" VerticalAlignment="Top" Margin="29,178,0,0"/>
+                        <Button Content="Rafraichir" x:Name="btn_rafraichirAtelier_Copy" HorizontalAlignment="Left" Margin="694,70,0,0" VerticalAlignment="Top" Width="87" Height="26" Click="btn_rafraichirAtelier_Copy_Click"/>
+                    </Grid>
                 </TabItem>
             </TabControl>
         </TabItem>

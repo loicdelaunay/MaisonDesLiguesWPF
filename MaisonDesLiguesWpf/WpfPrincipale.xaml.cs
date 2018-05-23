@@ -43,6 +43,10 @@ namespace MaisonDesLiguesWpf
         public void InitBddConnexion(Bdd UneConnexionOracle)
         {
             UneConnexion = UneConnexionOracle;
+
+            //Remplit les champs quand la bdd est chargée
+            Utilitaire.RemplirComboBox(UneConnexion, comboBox_CreateVacation, "VATELIER01");
+            Utilitaire.RemplirComboBox(UneConnexion, ComboBox_ThemeChoisirAtelier, "VATELIER01");
         }
 
         /// <summary>
@@ -52,11 +56,6 @@ namespace MaisonDesLiguesWpf
         /// <param name="e"></param>
         private async void Btn_ExitAsync(object sender, RoutedEventArgs e)
         {
-            //MessageBoxResult result = MessageBox.Show("Voulez-vous quitter l'application ?", "APP_NAME", MessageBoxButton.YesNo, MessageBoxImage.Warning);
-            //if (result == MessageBoxResult.Yes)
-            //{
-            //    Application.Current.Shutdown();
-            //}
             MessageDialogResult result = await this.ShowMessageAsync("MAISON DES LIGUES", "Voulez-vous quitter l'application ?", MessageDialogStyle.AffirmativeAndNegative);
             if (result == MessageDialogResult.Affirmative)
             {
@@ -434,9 +433,31 @@ namespace MaisonDesLiguesWpf
             }
         }
 
+        private void Btn_CreateTheme_Click(object sender, RoutedEventArgs e)
+        {
+            UneConnexion.CreateTheme(System.Convert.ToInt16(ComboBox_ThemeChoisirAtelier.SelectedValue), System.Convert.ToInt16(Txtbox_NumeroTheme.Text),Txtbox_LibelleTheme.Text);
+        }
+
+        private void Btn_CreateVacation_Click(object sender, RoutedEventArgs e)
+        {
+            UneConnexion.CreateVacation(System.Convert.ToInt16(Txtbox_NumeroVacation.Text), System.Convert.ToInt16(Txtbox_NumeroVacation.Text), datePicker_HeureDebutVacation.Text, datePicker_HeureFinVacation.Text);
+        }
+
         private void Btn_CreateAtelier_Click(object sender, RoutedEventArgs e)
         {
-            UneConnexion.CreateAtelier(Txtbox_LibelleAtelier.Text, int.Parse(Txtbox_NbMaxiPlace.Text));
+            UneConnexion.CreateAtelier(Txtbox_LibelleAtelier.Text, System.Convert.ToInt16(Txtbox_NbMaxiPlace.Text));
+        }
+
+        private void btn_rafraichirAtelier_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            Utilitaire.RemplirComboBox(UneConnexion, comboBox_CreateVacation, "VATELIER01");
+            Utilitaire.RemplirComboBox(UneConnexion, ComboBox_ThemeChoisirAtelier, "VATELIER01");
+        }
+
+        private void btn_rafraichirAtelier_Click(object sender, RoutedEventArgs e)
+        {
+            Utilitaire.RemplirComboBox(UneConnexion, comboBox_CreateVacation, "VATELIER01");
+            Utilitaire.RemplirComboBox(UneConnexion, ComboBox_ThemeChoisirAtelier, "VATELIER01");
         }
     }
 }
