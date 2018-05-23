@@ -433,5 +433,10 @@ namespace MaisonDesLiguesWpf
             {
             }
         }
+
+        private void Btn_CreateAtelier_Click(object sender, RoutedEventArgs e)
+        {
+            UneConnexion.CreateAtelier(Txtbox_LibelleAtelier.Text, int.Parse(Txtbox_NbMaxiPlace.Text));
+        }
     }
 }

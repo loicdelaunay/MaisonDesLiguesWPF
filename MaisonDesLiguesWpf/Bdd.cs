@@ -361,5 +361,26 @@ namespace BaseDeDonnees
             UneOracleCommand.Parameters.Add("pass", pass);
             UneOracleCommand.ExecuteNonQuery();
         }
+
+        public void CreateAtelier(string libelleAtelier, int nbrPlaceMax)
+        {
+            try
+            {
+                UneOracleCommand = new OracleCommand("INSERT_ATELIER", CnOracle);
+                UneOracleCommand.CommandType = CommandType.StoredProcedure;
+                UneOracleCommand.Parameters.Add("plibelle", OracleDbType.Char).Value = libelleAtelier;
+                UneOracleCommand.Parameters.Add("pnbplacemaxi", OracleDbType.Int32).Value = nbrPlaceMax;
+                UneOracleCommand.ExecuteNonQuery();
+                MessageBox.Show("Création de l'atelier ok");
+            }
+            catch (OracleException Oex)
+            {
+                MessageBox.Show("Erreur Oracle \n" + Oex.Message);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Autre Erreur  \n" + ex.Message);
+            }
+        }
     }
 }
