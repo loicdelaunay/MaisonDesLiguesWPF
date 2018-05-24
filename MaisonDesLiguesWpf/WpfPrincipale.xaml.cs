@@ -449,16 +449,69 @@ namespace MaisonDesLiguesWpf
             UneConnexion.CreateAtelier(Txtbox_LibelleAtelier.Text, System.Convert.ToInt16(Txtbox_NbMaxiPlace.Text));
         }
 
-        private void btn_rafraichirAtelier_Copy_Click(object sender, RoutedEventArgs e)
+        private void tabControle_Creation_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            Utilitaire.RemplirComboBox(UneConnexion, comboBox_CreateVacation, "VATELIER01");
-            Utilitaire.RemplirComboBox(UneConnexion, ComboBox_ThemeChoisirAtelier, "VATELIER01");
+
+            string tabItem = ((sender as TabControl).SelectedItem as TabItem).Header as string;
+
+            if(e.Source is System.Windows.Controls.TabControl)
+            {
+                switch (tabItem)
+                {
+                    case "Créer atelier":
+                        break;
+
+                    case "Créer vacation":
+                        Utilitaire.RemplirComboBox(UneConnexion, comboBox_CreateVacation, "VATELIER01");
+                        if (comboBox_CreateVacation.Items.Count == 0)
+                        {
+                            AlertNoAtelier();
+                        }
+                        break;
+
+                    case "Créer thème":
+                        Utilitaire.RemplirComboBox(UneConnexion, ComboBox_ThemeChoisirAtelier, "VATELIER01");
+                        if (ComboBox_ThemeChoisirAtelier.Items.Count == 0)
+                        {
+                            AlertNoAtelier();
+                        }
+                        break;
+
+                    default:
+                        return;
+                }
+            }
         }
 
-        private void btn_rafraichirAtelier_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// Bouton pour quitter l'application 
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void AlertNoAtelier()
         {
-            Utilitaire.RemplirComboBox(UneConnexion, comboBox_CreateVacation, "VATELIER01");
-            Utilitaire.RemplirComboBox(UneConnexion, ComboBox_ThemeChoisirAtelier, "VATELIER01");
+            MessageDialogResult result = await this.ShowMessageAsync("MAISON DES LIGUES", "Attention il n'existe aucun atelier ! Merci d'en créer au minimum 1", MessageDialogStyle.Affirmative);
+            if (result == MessageDialogResult.Affirmative)
+            {
+                tabItem_CreerAtelier.IsSelected = true;
+            }
+
+            return;
+        }
+
+        private void datePicker_HeureFinVacation_ValueChanged(object sender, RoutedPropertyChangedEventArgs<object> e)
+        {
+            if(datePicker_HeureDebutVacation.Value.ToString() == "")
+            {
+                datePicker_HeureFinVacation.Value = null;
+                MessageBox.Show("Merci de saisir une date de début");
+            }
+
+            if(datePicker_HeureFinVacation.Value > datePicker_HeureDebutVacation.Value)
+            {
+                datePicker_HeureFinVacation.Value = null;
+                MessageBox.Show("Merci de saisir une date dde fin supérieur à la date de début");
+            }
         }
     }
 }
